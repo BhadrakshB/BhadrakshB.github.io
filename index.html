@@ -558,21 +558,21 @@
                 </div>
                 
                 <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
+                    
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mvgqnrjg" method="POST">
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="name" class="form-label">Name</label>
-                                <input type="text" id="name" name="name" class="form-control" required>
+                                <label for="name" class="form-label">Name<input type="text" id="name" name="name" class="form-control" required></label>
+                                
                             </div>
                             <div class="form-group">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
+                                <label for="email" class="form-label">Email
+                                <input type="email" id="email" name="email" class="form-control" required></label>
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="project" class="form-label">Project Type</label>
-                            <select id="project" name="project" class="form-control" required>
+                            <label for="project" class="form-label">Project Type<select id="project" name="project" class="form-control" required>
                                 <option value="">Select project type</option>
                                 <option value="mobile-app">Mobile Application</option>
                                 <option value="web-app">Web Application</option>
@@ -580,12 +580,13 @@
                                 <option value="ai-solution">AI Solution</option>
                                 <option value="consultation">Consultation</option>
                                 <option value="other">Other</option>
-                            </select>
+                            </select></label>
+                            
                         </div>
                         
                         <div class="form-group">
-                            <label for="message" class="form-label">Project Details</label>
-                            <textarea id="message" name="message" class="form-control" rows="4" required placeholder="Tell me about your project vision..."></textarea>
+                            <label for="message" class="form-label">Project Details
+                            <textarea id="message" name="message" class="form-control" rows="4" required placeholder="Tell me about your project vision..."></textarea></label>
                         </div>
                         
                         <button type="submit" class="btn btn--primary btn--full-width magnetic">

@@ -1119,6 +1119,11 @@ body {
 
 .title-main {
   display: block;
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-hover) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
 }
 
 .title-sub {

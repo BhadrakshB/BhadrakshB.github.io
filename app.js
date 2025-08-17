@@ -36,7 +36,7 @@ class ModernPortfolio {
         this.initScrollBeacon();
         this.initScrollAnimations();
         this.initMagneticButtons();
-        this.initFormHandling();
+        // this.initFormHandling();
         this.initSmoothScrolling();
         this.initPerformanceOptimizations();
 
@@ -708,70 +708,70 @@ class ModernPortfolio {
     /**
      * Form Handling
      */
-    initFormHandling() {
-        const form = document.getElementById('contactForm');
-        if (!form) return;
+    // initFormHandling() {
+    //     const form = document.getElementById('contactForm');
+    //     if (!form) return;
 
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleFormSubmit(form);
-        });
+    //     form.addEventListener('submit', (e) => {
+    //         e.preventDefault();
+    //         this.handleFormSubmit(form);
+    //     });
 
-        // Form field interactions
-        const formControls = form.querySelectorAll('.form-control');
-        formControls.forEach((control) => {
-            control.addEventListener('focus', () => {
-                if (!this.isReducedMotion) {
-                    gsap.to(control, { y: -2, duration: 0.2 });
-                }
-            });
+    //     // Form field interactions
+    //     const formControls = form.querySelectorAll('.form-control');
+    //     formControls.forEach((control) => {
+    //         control.addEventListener('focus', () => {
+    //             if (!this.isReducedMotion) {
+    //                 gsap.to(control, { y: -2, duration: 0.2 });
+    //             }
+    //         });
 
-            control.addEventListener('blur', () => {
-                if (!this.isReducedMotion) {
-                    gsap.to(control, { y: 0, duration: 0.2 });
-                }
-            });
-        });
-    }
+    //         control.addEventListener('blur', () => {
+    //             if (!this.isReducedMotion) {
+    //                 gsap.to(control, { y: 0, duration: 0.2 });
+    //             }
+    //         });
+    //     });
+    // }
 
-    handleFormSubmit(form) {
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const btnText = submitBtn.querySelector('.btn-text');
-        const originalText = btnText.textContent;
+    // handleFormSubmit(form) {
+    //     const submitBtn = form.querySelector('button[type="submit"]');
+    //     const btnText = submitBtn.querySelector('.btn-text');
+    //     const originalText = btnText.textContent;
 
-        // Disable form and show loading state
-        submitBtn.disabled = true;
-        btnText.textContent = 'Sending...';
+    //     // Disable form and show loading state
+    //     submitBtn.disabled = true;
+    //     btnText.textContent = 'Sending...';
 
-        // Animate button
-        gsap.to(submitBtn, {
-            scale: 0.95,
-            duration: 0.1,
-            yoyo: true,
-            repeat: 1,
-            onComplete: () => {
-                // Simulate form submission
-                setTimeout(() => {
-                    btnText.textContent = 'Message Sent!';
-                    submitBtn.style.background = 'var(--color-success)';
+    //     // Animate button
+    //     gsap.to(submitBtn, {
+    //         scale: 0.95,
+    //         duration: 0.1,
+    //         yoyo: true,
+    //         repeat: 1,
+    //         onComplete: () => {
+    //             // Simulate form submission
+    //             setTimeout(() => {
+    //                 btnText.textContent = 'Message Sent!';
+    //                 submitBtn.style.background = 'var(--color-success)';
                     
-                    // Success animation
-                    gsap.fromTo(submitBtn,
-                        { scale: 0.9 },
-                        { scale: 1, duration: 0.3, ease: "back.out(2)" }
-                    );
+    //                 // Success animation
+    //                 gsap.fromTo(submitBtn,
+    //                     { scale: 0.9 },
+    //                     { scale: 1, duration: 0.3, ease: "back.out(2)" }
+    //                 );
 
-                    // Reset form after delay
-                    setTimeout(() => {
-                        form.reset();
-                        btnText.textContent = originalText;
-                        submitBtn.style.background = '';
-                        submitBtn.disabled = false;
-                    }, 3000);
-                }, 1500);
-            }
-        });
-    }
+    //                 // Reset form after delay
+    //                 setTimeout(() => {
+    //                     form.reset();
+    //                     btnText.textContent = originalText;
+    //                     submitBtn.style.background = '';
+    //                     submitBtn.disabled = false;
+    //                 }, 3000);
+    //             }, 1500);
+    //         }
+    //     });
+    // }
 
     /**
      * Smooth Scrolling
