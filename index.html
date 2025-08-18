@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bhadraksh Bhargava - Creative Full-Stack & Mobile Developer</title>
-    <meta name="description" content="Creative Full-Stack & Mobile Developer specializing in Flutter, React, Go microservices, and agentic AI solutions">
+    <title>Ship measurable product wins on an engineering cadence - Bhadraksh Bhargava</title>
+    <meta name="description" content="Outcome-driven engineering partner for mobile, web, and AI-backed systems. Launch cross-platform apps, scale backends, add AI features that move metrics.">
     
-    <!-- Preload critical fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- GSAP and ScrollTrigger -->
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
@@ -18,614 +18,484 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Cursor follower -->
-    <div class="cursor-follower" id="cursor-follower"></div>
-    
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <div class="navbar-content">
-                <div class="navbar-brand">
-                    <div class="brand-icon">
-                        <div class="icon-inner"></div>
-                    </div>
-                    <span class="brand-text">Bhadraksh</span>
-                </div>
-                
-                <div class="navbar-links">
-                    <a href="#hero" class="nav-link active">Home</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#skills" class="nav-link">Skills</a>
-                    <a href="#experience" class="nav-link">Experience</a>
-                    <a href="#projects" class="nav-link">Work</a>
-                    <a href="#contact" class="nav-link">Contact</a>
-                </div>
-                
-                <div class="navbar-actions">
-                    <a href="https://daloctypx7lhk4xo.public.blob.vercel-storage.com/Bhadraksh%20Bhargava.pdf" target="_blank" class="btn btn--outline btn--sm">Resume</a>
-                </div>
-            </div>
-        </div>
-        <div class="navbar-progress">
-            <div class="progress-line"></div>
-        </div>
-    </nav>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon" id="theme-icon">☀️</span>
+        <!-- <span class="moon-icon">🌙</span> -->
+    </button>
 
-    <!-- Scroll Progress Indicator -->
-    <div class="scroll-beacon" id="scroll-beacon">
-        <svg class="beacon-ring" viewBox="0 0 100 100">
-            <circle class="ring-bg" cx="50" cy="50" r="45"/>
-            <circle class="ring-progress" cx="50" cy="50" r="45"/>
-        </svg>
-        <div class="beacon-content">
-            <div class="beacon-dot"></div>
-            <div class="beacon-label" id="beacon-label">Hero</div>
+    <!-- Floating CTA -->
+    <div class="floating-cta" id="floatingCta">
+        <button class="floating-btn" onclick="scrollToSection('contact')">
+            📞 Book Call
+        </button>
+    </div>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta" id="mobileStickyCta">
+        <button class="mobile-btn" onclick="scrollToSection('contact')">
+            Start My MVP Sprint →
+        </button>
+    </div>
+
+    <!-- Command Palette -->
+    <div class="command-palette hidden" id="commandPalette">
+        <div class="command-header">
+            <span class="prompt">$</span>
+            <input type="text" class="command-input" placeholder="Navigate to section..." id="commandInput">
+            <span class="hint">⌘K</span>
+        </div>
+        <div class="command-results" id="commandResults">
+            <div class="command-item" data-target="hero">
+                <span class="icon">🏠</span>
+                <span class="name">Hero</span>
+                <span class="path">~/ship-wins</span>
+            </div>
+            <div class="command-item" data-target="problems">
+                <span class="icon">🎯</span>
+                <span class="name">Problems</span>
+                <span class="path">~/solutions</span>
+            </div>
+            <div class="command-item" data-target="services">
+                <span class="icon">📦</span>
+                <span class="name">Services</span>
+                <span class="path">~/packages</span>
+            </div>
+            <div class="command-item" data-target="proof">
+                <span class="icon">📊</span>
+                <span class="name">Proof</span>
+                <span class="path">~/results</span>
+            </div>
+            <div class="command-item" data-target="contact">
+                <span class="icon">📨</span>
+                <span class="name">Contact</span>
+                <span class="path">~/get-started</span>
+            </div>
         </div>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-background">
-            <div class="gradient-orb orb-1"></div>
-            <div class="gradient-orb orb-2"></div>
-            <div class="gradient-orb orb-3"></div>
-            <div class="noise-overlay"></div>
-        </div>
-        
-        <div class="container">
-            <div class="hero-content">
-                <!-- <div class="hero-badge">
-                    <span class="badge-text">Available for new opportunities</span>
-                    <div class="badge-dot"></div>
-                </div> -->
-                
-                <h1 class="hero-title">
-                    <span class="title-main">Building the future</span>
-                    <span class="title-sub">one pixel at a time</span>
-                </h1>
-                
-                <p class="hero-description">
-                    I'm Bhadraksh Bhargava, a creative full-stack developer specializing in Flutter, React, 
-                    and Go microservices. I craft elegant solutions that bridge the gap between design and technology.
-                </p>
-                
-                <div class="hero-metrics">
-                    <div class="metric">
-                        <div class="metric-number">1</div>
-                        <div class="metric-label">Year Experience</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-number">4</div>
-                        <div class="metric-label">Projects Delivered</div>
-                    </div>
-                    <div class="metric">
-                        <div class="metric-number">3</div>
-                        <div class="metric-label">Happy Clients</div>
-                    </div>
-                </div>
-                
-                <div class="hero-actions">
-                    <button class="btn btn--primary magnetic" data-target="projects">
-                        <span class="btn-text">View My Work</span>
-                        <div class="btn-shine"></div>
-                    </button>
-                    <button class="btn btn--ghost magnetic" data-target="contact">
-                        <span class="btn-text">Let's Talk</span>
-                        <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-            <span class="scroll-text">Scroll to explore</span>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section about-section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">About me</div>
-                <h2 class="section-title">Passionate about creating exceptional digital experiences</h2>
-            </div>
-            
-            <div class="about-grid">
-                <div class="about-content">
-                    <div class="about-text">
-                        <p class="text-large">
-                            I'm a software engineer with over 1 year of experience building mobile and web applications. 
-                            My journey spans from crafting pixel-perfect Flutter apps to architecting scalable microservices.
-                        </p>
-                        <p>
-                            Based in Hyderabad, I specialize in creating delightful user experiences through clean code, 
-                            thoughtful design, and cutting-edge technology. I believe in the power of great software to 
-                            transform businesses and improve lives.
-                        </p>
-                    </div>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Ship measurable product wins on an engineering cadence</h1>
+                    <p class="hero-subtitle">Launch cross-platform apps, scale with event-driven backends, and add AI features that actually move retention and revenue.</p>
                     
-                    <div class="about-details">
-                        <div class="detail-group">
-                            <h4>Contact</h4>
-                            <div class="detail-item">
-                                <span class="detail-label">Email</span>
-                                <a href="mailto:bhadrakshbhargava@gmail.com" class="detail-value">bhadrakshbhargava@gmail.com</a>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Phone</span>
-                                <span class="detail-value">+91-9121020670</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Location</span>
-                                <span class="detail-value">Hyderabad, India</span>
-                            </div>
-                        </div>
-                        
-                        <div class="detail-group">
-                            <h4>Connect</h4>
-                            <div class="social-links">
-                                <a href="https://linkedin.com/in/bhadraksh-bhargava" target="_blank" class="social-link">
-                                    <span class="social-text">LinkedIn</span>
-                                    <svg class="social-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </a>
-                                <a href="https://github.com/BhadrakshB" target="_blank" class="social-link">
-                                    <span class="social-text">GitHub</span>
-                                    <svg class="social-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-visual">
-                    <div class="profile-card">
-                        <div class="card-glow"></div>
-                        <div class="profile-image">
-                            <div class="image-content">
-                                <div class="avatar-placeholder">BB</div>
-                            </div>
-                        </div>
-                        <div class="profile-info">
-                            <h3>Bhadraksh Bhargava</h3>
-                            <p>Full-Stack Developer</p>
-                            <!-- <div class="status-indicator">
-                                <div class="status-dot"></div>
-                                <span>Available for work</span>
-                            </div> -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="section skills-section" id="skills">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Skills & Technologies</div>
-                <h2 class="section-title">Tools I use to build amazing products</h2>
-            </div>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3 class="category-title">Frontend</h3>
-                    <div class="skill-items">
-                        <div class="skill-chip">
-                            <span class="skill-icon">⚛️</span>
-                            <span class="skill-name">React</span>
-                        </div>
-                        <div class="skill-chip">
-                            <span class="skill-icon">📱</span>
-                            <span class="skill-name">Flutter</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3 class="category-title">Backend</h3>
-                    <div class="skill-items">
-                        <div class="skill-chip">
-                            <span class="skill-icon">🐹</span>
-                            <span class="skill-name">Go</span>
-                        </div>
-                        <div class="skill-chip">
-                            <span class="skill-icon">🐍</span>
-                            <span class="skill-name">Python</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3 class="category-title">AI & Data</h3>
-                    <div class="skill-items">
-                        <div class="skill-chip">
-                            <span class="skill-icon">🦜</span>
-                            <span class="skill-name">LangChain</span>
-                        </div>
-                        <div class="skill-chip">
-                            <span class="skill-icon">🗃️</span>
-                            <span class="skill-name">Vector DBs</span>
-                        </div>
-                        <div class="skill-chip">
-                            <span class="skill-icon">🎯</span>
-                            <span class="skill-name">Prompt Engineering</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3 class="category-title">Database</h3>
-                    <div class="skill-items">
-                        <div class="skill-chip">
-                            <span class="skill-icon">🐘</span>
-                            <span class="skill-name">PostgreSQL</span>
-                        </div>
-                        <div class="skill-chip">
-                            <span class="skill-icon">🔗</span>
-                            <span class="skill-name">Neo4j</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3 class="category-title">DevOps</h3>
-                    <div class="skill-items">
-                        <div class="skill-chip">
-                            <span class="skill-icon">🐳</span>
-                            <span class="skill-name">Docker</span>
-                        </div>
-                        <div class="skill-chip">
-                            <span class="skill-icon">☁️</span>
-                            <span class="skill-name">GCP</span>
-                        </div>
-                        <div class="skill-chip">
-                            <span class="skill-icon">🔄</span>
-                            <span class="skill-name">CI/CD</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-category">
-                    <h3 class="category-title">Message Queue</h3>
-                    <div class="skill-items">
-                        <div class="skill-chip">
-                            <span class="skill-icon">🐰</span>
-                            <span class="skill-name">RabbitMQ</span>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="section experience-section" id="experience">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Experience</div>
-                <h2 class="section-title">My professional journey</h2>
-            </div>
-            
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="marker-dot"></div>
-                        <div class="marker-line"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="timeline-meta">
-                                <span class="timeline-period">May 2024 – Present</span>
-                                <span class="timeline-location">Kerala, India</span>
-                            </div>
-                            <div class="timeline-title">
-                                <h3>SDE-1 Mobile Apps</h3>
-                                <h4>Asymmetri</h4>
-                            </div>
-                        </div>
-                        <div class="timeline-body">
-                            <ul class="achievement-list">
-                                <li>Built 4 production Flutter / React Native apps, cutting dev time 30%</li>
-                                <li>Engineered scalable state management boosting speed 50%</li>
-                                <li>Authored CI/CD pipelines (GitHub Actions) accelerating releases 60%</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="marker-dot"></div>
-                        <div class="marker-line"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="timeline-meta">
-                                <span class="timeline-period">May 2023 – Aug 2023</span>
-                                <span class="timeline-location">Noida, India</span>
-                            </div>
-                            <div class="timeline-title">
-                                <h3>Software Dev Intern</h3>
-                                <h4>Buildit Technologies</h4>
-                            </div>
-                        </div>
-                        <div class="timeline-body">
-                            <ul class="achievement-list">
-                                <li>Led social-media local-first app MVP</li>
-                                <li>Optimized FastAPI backend & SQL queries, +20% throughput</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker">
-                        <div class="marker-dot"></div>
-                    </div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <div class="timeline-meta">
-                                <span class="timeline-period">Sep 2022 – Nov 2023</span>
-                                <span class="timeline-location">New Delhi, India</span>
-                            </div>
-                            <div class="timeline-title">
-                                <h3>Frontend Dev Lead</h3>
-                                <h4>Jhattcut</h4>
-                            </div>
-                        </div>
-                        <div class="timeline-body">
-                            <ul class="achievement-list">
-                                <li>Delivered 2 high-perf Flutter apps, +30% retention</li>
-                                <li>Automated APK distribution via GitHub Actions</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section class="section projects-section" id="projects">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Featured Work</div>
-                <h2 class="section-title">Recent projects that I'm proud of</h2>
-            </div>
-            
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-image">
-                        <div class="image-placeholder" style="background: linear-gradient(135deg, var(--color-bg-1), var(--color-bg-3));">
-                            <div class="placeholder-icon">🏥</div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Vet Clinic Management</h3>
-                        <p class="project-description">
-                            Event-driven microservices on GCP Cloud Run with Flutter client.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Go</span>
-                            <span class="tech-tag">Gin</span>
-                            <span class="tech-tag">RabbitMQ</span>
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">GCP</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-image">
-                        <div class="image-placeholder" style="background: linear-gradient(135deg, var(--color-bg-2), var(--color-bg-4));">
-                            <div class="placeholder-icon">📊</div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Google ADK Contribution</h3>
-                        <p class="project-description">
-                            Real-time graph visualization for multi-agent debugging.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">AI</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-image">
-                        <div class="image-placeholder" style="background: linear-gradient(135deg, var(--color-bg-5), var(--color-bg-7));">
-                            <div class="placeholder-icon">🛒</div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">E-Commerce API</h3>
-                        <p class="project-description">
-                            Secure FastAPI backend with MySQL & JWT auth.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">JWT</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Leadership & Certifications -->
-    <section class="section leadership-section" id="leadership">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Leadership & Growth</div>
-                <h2 class="section-title">Beyond coding</h2>
-            </div>
-            
-            <div class="leadership-grid">
-                <div class="leadership-card">
-                    <div class="card-icon">👥</div>
-                    <h3>Leadership</h3>
-                    <div class="leadership-items">
-                        <div class="leadership-item">
-                            <h4>GDSC Lead</h4>
-                            <p>Founded first Google Developer Student Club at IIITT – Tier-1 rating.</p>
-                        </div>
-                        <div class="leadership-item">
-                            <h4>Technical Secretary</h4>
-                            <p>Organized national hackathons & Google Cloud Jam.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="leadership-card">
-                    <div class="card-icon">🏆</div>
-                    <h3>Certifications</h3>
-                    <div class="cert-list">
-                        <div class="cert-item">
-                            <span class="cert-badge">🏆</span>
-                            <span class="cert-name">AWS Intro to Blockchain</span>
-                        </div>
-                        <div class="cert-item">
-                            <span class="cert-badge">₿</span>
-                            <span class="cert-name">Bitcoin for Developers – Saylor</span>
-                        </div>
-                        <div class="cert-item">
-                            <span class="cert-badge">🔗</span>
-                            <span class="cert-name">Blockchain & Applications – NPTEL</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="section contact-section" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <div class="section-badge">Get in touch</div>
-                <h2 class="section-title">Let's create something amazing together</h2>
-            </div>
-            
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-card">
-                        <h3>Ready to collaborate?</h3>
-                        <p>I'm always excited to work on innovative projects that push the boundaries of mobile development and cloud architecture.</p>
-                        
-                        <div class="contact-methods">
-                            <div class="contact-method">
-                                <div class="method-icon">📧</div>
-                                <div class="method-content">
-                                    <span class="method-label">Email</span>
-                                    <a href="mailto:bhadrakshbhargava@gmail.com" class="method-value">bhadrakshbhargava@gmail.com</a>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-method">
-                                <div class="method-icon">📱</div>
-                                <div class="method-content">
-                                    <span class="method-label">Phone</span>
-                                    <span class="method-value">+91-9121020670</span>
-                                </div>
-                            </div>
-                            
-                            <div class="contact-method">
-                                <div class="method-icon">📍</div>
-                                <div class="method-content">
-                                    <span class="method-label">Location</span>
-                                    <span class="method-value">Hyderabad, India</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contact-form-container">
-                    
-                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mvgqnrjg" method="POST">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="name" class="form-label">Name<input type="text" id="name" name="name" class="form-control" required></label>
-                                
-                            </div>
-                            <div class="form-group">
-                                <label for="email" class="form-label">Email
-                                <input type="email" id="email" name="email" class="form-control" required></label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="project" class="form-label">Project Type<select id="project" name="project" class="form-control" required>
-                                <option value="">Select project type</option>
-                                <option value="mobile-app">Mobile Application</option>
-                                <option value="web-app">Web Application</option>
-                                <option value="backend-api">Backend API</option>
-                                <option value="ai-solution">AI Solution</option>
-                                <option value="consultation">Consultation</option>
-                                <option value="other">Other</option>
-                            </select></label>
-                            
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" class="form-label">Project Details
-                            <textarea id="message" name="message" class="form-control" rows="4" required placeholder="Tell me about your project vision..."></textarea></label>
-                        </div>
-                        
-                        <button type="submit" class="btn btn--primary btn--full-width magnetic">
-                            <span class="btn-text">Send Message</span>
-                            <div class="btn-shine"></div>
+                    <div class="hero-ctas">
+                        <button class="btn-primary" onclick="scrollToSection('contact')">
+                            Book a 20-min Feasibility Call →
                         </button>
-                    </form>
+                        <button class="btn-secondary" onclick="scrollToSection('contact')">
+                            Start a 48-hour Technical Audit →
+                        </button>
+                    </div>
+                    
+                    <div class="trust-strip">
+                        <span class="trust-item">4 production apps</span>
+                        <span class="trust-separator">·</span>
+                        <span class="trust-item">60% faster releases</span>
+                        <span class="trust-separator">·</span>
+                        <span class="trust-item">99.9% crash-free</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-left">
-                    <div class="footer-brand">
-                        <div class="brand-icon">
-                            <div class="icon-inner"></div>
-                        </div>
-                        <span class="brand-text">Bhadraksh Bhargava</span>
-                    </div>
-                    <p class="footer-tagline">Building the future, one pixel at a time.</p>
+        <!-- Problem → Solution Section -->
+        <section id="problems" class="problems-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fix what's blocking growth</h2>
+                    <p>Click a problem to see the solution</p>
                 </div>
                 
-                <div class="footer-right">
-                    <div class="footer-links">
-                        <a href="https://linkedin.com/in/bhadraksh-bhargava" target="_blank" class="footer-link">LinkedIn</a>
-                        <a href="https://github.com/BhadrakshB" target="_blank" class="footer-link">GitHub</a>
-                        <a href="mailto:bhadrakshbhargava@gmail.com" class="footer-link">Email</a>
+                <div class="problems-grid">
+                    <div class="problems-list">
+                        <div class="problem-card active" data-solution="0">
+                            <h3>Mobile backlog is blocking revenue</h3>
+                            <p>iOS and Android teams can't keep up with feature demands</p>
+                        </div>
+                        <div class="problem-card" data-solution="1">
+                            <h3>Monolith can't scale</h3>
+                            <p>Single codebase bottlenecks deployment and performance</p>
+                        </div>
+                        <div class="problem-card" data-solution="2">
+                            <h3>Checkout churn is killing growth</h3>
+                            <p>Slow APIs and poor UX losing customers at conversion</p>
+                        </div>
+                        <div class="problem-card" data-solution="3">
+                            <h3>Data is siloed and unsearchable</h3>
+                            <p>Information trapped in separate systems</p>
+                        </div>
                     </div>
-                    <div class="footer-copy">
-                        <span>&copy; 2025 Bhadraksh Bhargava. All rights reserved.</span>
+                    
+                    <div class="solution-panel">
+                        <div class="solution-content" data-solution="0">
+                            <h3 class="solution-title">Rapid cross-platform delivery with Flutter</h3>
+                            <p class="solution-summary">Single codebase for iOS and Android with native performance</p>
+                            <div class="solution-outcome">−40% eng hours</div>
+                            <p class="solution-details">Shared business logic, platform-specific UI, hot reload development</p>
+                        </div>
+                        <!-- <div class="solution-content" data-solution="1">
+                            <h3>Go/Gin microservices on Cloud Run</h3>
+                            <p>Event-driven architecture that scales automatically</p>
+                            <div class="outcome">10× traffic</div>
+                            <p class="details">RabbitMQ messaging, Docker containers, zero-downtime deployments</p>
+                        </div>
+                        <div class="solution-content" data-solution="2">
+                            <h3>Sub-200ms funnels with React + FastAPI</h3>
+                            <p>Lightning-fast checkouts that convert</p>
+                            <div class="outcome">+18% conversions</div>
+                            <p class="details">Optimized queries, cached responses, streamlined UX</p>
+                        </div>
+                        <div class="solution-content" data-solution="3">
+                            <h3>AI-ready graph + vector search</h3>
+                            <p>Neo4j + embeddings for intelligent recommendations</p>
+                            <div class="outcome">New recommendations</div>
+                            <p class="details">Knowledge graphs, semantic search, agentic workflows</p>
+                        </div> -->
+                    </div>
+                </div>
+                
+                <div class="section-cta">
+                    <button class="btn-primary" onclick="scrollToSection('contact')">
+                        Fix My Bottleneck →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Productized engineering services</h2>
+                    <p>Fixed scope, clear deliverables, measurable outcomes</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>MVP Sprint</h3>
+                        <div class="service-duration">4 weeks</div>
+                        <div class="service-deliverables">
+                            <div class="deliverable">✓ Scope & requirements</div>
+                            <div class="deliverable">✓ Demo build</div>
+                            <div class="deliverable">✓ Metrics plan</div>
+                            <div class="deliverable">✓ Release strategy</div>
+                        </div>
+                        <div class="service-price">Fixed price after 20-min call</div>
+                        <button class="btn-primary service-btn" onclick="scrollToSection('contact')">
+                            Start My MVP Sprint →
+                        </button>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>Scale & Reliability</h3>
+                        <div class="service-duration">2–3 weeks</div>
+                        <div class="service-deliverables">
+                            <div class="deliverable">✓ Latency audit</div>
+                            <div class="deliverable">✓ Index strategy</div>
+                            <div class="deliverable">✓ CI/CD pipelines</div>
+                            <div class="deliverable">✓ Rollback playbook</div>
+                        </div>
+                        <div class="service-price">Performance guarantee</div>
+                        <button class="btn-primary service-btn" onclick="scrollToSection('contact')">
+                            Audit My Pipeline →
+                        </button>
+                    </div>
+                    
+                    <div class="service-card">
+                        <h3>AI Infusion</h3>
+                        <div class="service-duration">2–4 weeks</div>
+                        <div class="service-deliverables">
+                            <div class="deliverable">✓ Agent workflows</div>
+                            <div class="deliverable">✓ RAG + vector DB</div>
+                            <div class="deliverable">✓ Analytics hooks</div>
+                            <div class="deliverable">✓ Knowledge graphs</div>
+                        </div>
+                        <div class="service-price">Intelligence upgrade</div>
+                        <button class="btn-primary service-btn" onclick="scrollToSection('contact')">
+                            Add AI to My Product →
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </section>
+
+        <!-- Proof Section -->
+        <section id="proof" class="proof-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Proof that moves metrics</h2>
+                    <p>Real outcomes from real projects</p>
+                </div>
+                
+                <div class="proof-carousel">
+                    <div class="proof-card">
+                        <h3>Vet Clinic Platform</h3>
+                        <p>HA microservices on GCP; zero downtime during promos</p>
+                        <div class="proof-tech">Go • RabbitMQ • Cloud Run • Flutter</div>
+                        <!-- <button class="btn-secondary proof-btn">See Architecture →</button> -->
+                    </div>
+                    
+                    <div class="proof-card">
+                        <h3>Google ADK Contribution</h3>
+                        <p>Real-time agent graph viz; debugging from hours to minutes</p>
+                        <div class="proof-tech">TypeScript • D3.js • AI Agents</div>
+                        <!-- <button class="btn-secondary proof-btn">Watch 40-sec Demo →</button> -->
+                    </div>
+                    
+                    <div class="proof-card">
+                        <h3>E-commerce API</h3>
+                        <p>p95 <200ms; indexed queries; higher conversions</p>
+                        <div class="proof-tech">FastAPI • MySQL • JWT</div>
+                        <!-- <button class="btn-secondary proof-btn">Read Benchmarks →</button> -->
+                    </div>
+                </div>
+                
+                <div class="section-cta">
+                    <button class="btn-secondary" onclick="scrollToSection('contact')">
+                        Show me more wins →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Outcomes Dashboard -->
+        <section id="outcomes" class="outcomes-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Outcomes that matter</h2>
+                    <p>Metrics from recent projects</p>
+                </div>
+                
+                <div class="outcomes-grid">
+                    <!-- <div class="outcome-card">
+                        <div class="outcome-value">−60%</div>
+                        <div class="outcome-label">Release cycle time</div>
+                        <div class="outcome-bar">
+                            <div class="outcome-fill" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <div class="outcome-value">+30%</div>
+                        <div class="outcome-label">Retention uplift</div>
+                        <div class="outcome-bar">
+                            <div class="outcome-fill" style="width: 30%"></div>
+                        </div>
+                    </div> -->
+                    
+                    <div class="outcome-card">
+                        <div class="outcome-value">0</div>
+                        <div class="outcome-label">P1 incidents (18 months)</div>
+                        <div class="outcome-bar">
+                            <div class="outcome-fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="outcome-card">
+                        <div class="outcome-value">99.9%</div>
+                        <div class="outcome-label">Crash-free sessions</div>
+                        <div class="outcome-bar">
+                            <div class="outcome-fill" style="width: 99%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-cta">
+                    <button class="btn-primary" onclick="scrollToSection('contact')">
+                        Get These Results →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process Section -->
+        <section id="process" class="process-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>De-risked delivery process</h2>
+                    <p>Clear milestones from discovery to launch</p>
+                </div>
+                
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Discovery call</h3>
+                            <p>20 min → hypothesis & scope</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Technical audit</h3>
+                            <p>48h → risk map & plan</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Sprint plan</h3>
+                            <p>milestones & demo dates</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Build + reviews</h3>
+                            <p>weekly Looms, test builds</p>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Launch + handover</h3>
+                            <p>docs, runbooks, SLA</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section-cta">
+                    <button class="btn-primary" onclick="scrollToSection('contact')">
+                        Send My Brief →
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>De-risk your next release</h2>
+                    <p>Get a technical roadmap in 48 hours</p>
+                </div>
+                
+                <div class="contact-content">
+                    
+                    
+                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mvgqnrjg" method="POST" style="max-width: 550px; margin: 0 auto;">
+                        <div class="form-group">
+                            <label for="pain-point" class="pain-label">What's your biggest challenge?</label>
+                            <div class="pain-pills" role="group" aria-label="Pain points">
+                                <input type="radio" id="pain-speed" name="pain_point" value="speed" class="pain-input" checked style="display:none;">
+                                <label for="pain-speed" class="pain-pill">Speed up delivery</label>
+
+                                <input type="radio" id="pain-retention" name="pain_point" value="retention" class="pain-input" style="display:none;">
+                                <label for="pain-retention" class="pain-pill">Increase retention</label>
+
+                                <input type="radio" id="pain-scale" name="pain_point" value="scale" class="pain-input" style="display:none;">
+                                <label for="pain-scale" class="pain-pill">Scale reliably</label>
+
+                                <input type="radio" id="pain-other" name="pain_point" value="other" class="pain-input" style="display:none;">
+                                <input
+                                    type="text"
+                                    id="pain-other-text"
+                                    name="pain_other_text"
+                                    maxlength="35"
+                                    placeholder="Other…"
+                                    class="pain-pill pain-other-textfield"
+                                    autocomplete="off"
+                                    style="margin-left: 0;"
+                                    aria-label="Other pain point (describe)"
+                                />
+                                <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const otherRadio = document.getElementById('pain-other');
+                                    const otherText = document.getElementById('pain-other-text');
+                                    const pills = document.querySelectorAll('.pain-input');
+                                    // When user focuses or types in the textfield, select the "other" radio
+                                    otherText.addEventListener('focus', function() {
+                                        otherRadio.checked = true;
+                                    });
+                                    otherText.addEventListener('input', function() {
+                                        otherRadio.checked = true;
+                                    });
+                                    // If another radio is selected, clear and blur the textfield
+                                    pills.forEach(function(pill) {
+                                        pill.addEventListener('change', function() {
+                                            if (!otherRadio.checked) {
+                                                otherText.value = '';
+                                                otherText.classList.remove('pain-other-focused');
+                                            }
+                                        });
+                                    });
+                                    // Add/remove focus class for styling
+                                    otherText.addEventListener('focus', function() {
+                                        otherText.classList.add('pain-other-focused');
+                                    });
+                                    otherText.addEventListener('blur', function() {
+                                        otherText.classList.remove('pain-other-focused');
+                                    });
+                                });
+                                </script>
+                                <style>
+                                .pain-other-textfield {
+                                    display: inline-block;
+                                    min-width: 140px;
+                                    padding: 0.5em 1em;
+                                    border-radius: 999px;
+                                    border: 1px solid #444;
+                                    background: var(--color-bg, #18181b);
+                                    color: var(--color-text, #fff);
+                                    font-family: inherit;
+                                    font-size: 1em;
+                                    outline: none;
+                                    transition: border 0.2s, box-shadow 0.2s;
+                                    margin-right: 6px;
+                                }
+                                /* Only highlight when focused */
+                                .pain-other-textfield.pain-other-focused {
+                                    border: 2px solid #6366f1;
+                                    box-shadow: 0 0 0 2px #6366f133;
+                                    background: var(--color-bg-focus, #232336);
+                                }
+                                </style>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Work Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="project">Project Brief (2-3 lines)</label>
+                            <textarea id="project" name="project" rows="3" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn-primary form-submit">
+                            Request My 48-hour Audit →
+                        </button>
+                        
+                        <p class="form-note">Reply within 24h—often with a Loom and a roadmap.</p>
+                    </form>
+                    
+                    <div class="form-success hidden" id="formSuccess">
+                        <h3>Audit request received!</h3>
+                        <p>You'll get a technical roadmap within 48 hours, often with a Loom walkthrough.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="app.js"></script>
 </body>
