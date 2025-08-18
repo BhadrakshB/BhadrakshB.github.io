@@ -674,7 +674,6 @@ body {
   .process-section > .container{
     justify-items: center;
   }
-  .process-section .section-header,
   .process-section .process-timeline {
     display: flex;
     justify-content: space-between;
@@ -683,7 +682,7 @@ body {
     gap: 3rem;
   } 
 
-   /* .process-section  .process-timeline::before {
+   .process-section  .process-timeline::before {
     content: '';
     position: absolute;
     top: 20px;
@@ -692,7 +691,7 @@ body {
     height: 2px;
     background: var(--border-primary);
     z-index: 1;
-  } */
+  }
   .process-section .section-cta {
     align-items: flex-start !important;
     text-align: center !important;
