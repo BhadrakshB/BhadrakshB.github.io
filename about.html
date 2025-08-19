@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Bhadraksh Bhargava - Creative Full-Stack & Mobile Developer</title>
-    <meta name="description" content="Personal portfolio of Bhadraksh Bhargava - Creative Full-Stack Developer specializing in Flutter, React, Go microservices, and AI engineering.">
+    <title>Full-Stack & Mobile Developer (Flutter, React, Go, FastAPI, AI) | Bhadraksh Bhargava</title>
+    <meta name="description" content="Full-Stack & Mobile developer skilled in Flutter, React, Go/Gin microservices, FastAPI, and AI/agents. Built 4 production apps, improved release speed 60%, and delivered 99.9% crash-free sessions. Based in Hyderabad • Open to remote.">
     
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -19,24 +19,89 @@
 </head>
 <body>
     <div class="guide-orb" id="guideOrb" aria-hidden="true"></div>
-    <!-- Header Navigation -->
-    <header class="header" id="header">
-        <div class="container">
-            
-            <div class="header-content">
-                  <div class="logo">
-                    <span class="logo-text">Bhadraksh Bhargava</span>
-                </div>
+        <!-- Header Navigation -->
+        <header class="header" id="header">
+            <div class="container header-content">
+                <div class="logo"><span class="logo-text">Bhadraksh Bhargava</span></div>
+                <nav class="header-nav">
+                    <a href="index.html" class="nav-link">← To Services</a>
+                    <!-- <button id="themeToggleHeader" class="theme-toggle-header" aria-label="Toggle theme">
+                        <span class="sun-icon">☀️</span><span class="moon-icon">🌙</span>
+                    </button> -->
+                </nav>
+            </div>
+        </header>
 
-      <nav class="header-nav">
-        <a href="index.html" class="nav-link">← To Services</a>
-        <!-- <button id="themeToggleHeader" class="theme-toggle-header" aria-label="Toggle theme">
-          <span class="sun-icon">☀️</span><span class="moon-icon">🌙</span>
-        </button> -->
-      </nav>
+    <!-- Theme Toggle (floating, same as index) -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="theme-icon" id="theme-icon">☀️</span>
+    </button>
+
+    <!-- Command Button (floating) -->
+    <button class="command-button" id="commandButton" aria-label="Command Button">
+        <span class="command-icon" id="command-icon">⌘K</span>
+    </button>
+
+    <!-- Floating CTA (match index styles) -->
+    <div class="floating-cta" id="floatingCta">
+        <a class="floating-btn" href="index.html#contact">📞 Book Call</a>
+    </div>
+
+    <!-- Mobile Sticky CTA (match index styles) -->
+    <div class="mobile-sticky-cta" id="mobileStickyCta">
+        <a class="mobile-btn" href="index.html#contact">Start My MVP Sprint →</a>
+    </div>
+
+    <!-- Command Palette -->
+    <div class="command-palette hidden" id="commandPalette">
+        <div class="command-header">
+            <span class="prompt">$</span>
+            <input type="text" class="command-input" placeholder="Navigate to section..." id="commandInput">
+            <span class="hint">⌘K</span>
+        </div>
+        <div class="command-results" id="commandResults">
+            <div class="command-item" data-target="personal-hero">
+                <span class="icon">👤</span>
+                <span class="name">Intro</span>
+                <span class="path">~/about/hero</span>
+            </div>
+            <div class="command-item" data-target="education">
+                <span class="icon">🎓</span>
+                <span class="name">Education</span>
+                <span class="path">~/about/education</span>
+            </div>
+            <div class="command-item" data-target="technical-skills">
+                <span class="icon">🛠️</span>
+                <span class="name">Technical Skills</span>
+                <span class="path">~/about/skills</span>
+            </div>
+            <div class="command-item" data-target="experience">
+                <span class="icon">💼</span>
+                <span class="name">Experience</span>
+                <span class="path">~/about/experience</span>
+            </div>
+            <div class="command-item" data-target="projects">
+                <span class="icon">📦</span>
+                <span class="name">Projects</span>
+                <span class="path">~/about/projects</span>
+            </div>
+            <div class="command-item" data-target="leadership">
+                <span class="icon">🏅</span>
+                <span class="name">Leadership & Certs</span>
+                <span class="path">~/about/leadership</span>
+            </div>
+            <div class="command-item" data-target="interests">
+                <span class="icon">✨</span>
+                <span class="name">Interests</span>
+                <span class="path">~/about/interests</span>
+            </div>
+            <div class="command-item" data-target="cta">
+                <span class="icon">📨</span>
+                <span class="name">Contact CTA</span>
+                <span class="path">~/about/contact</span>
             </div>
         </div>
-    </header>
+    </div>
 
     <!-- Theme Toggle -->
     <!-- <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -52,8 +117,8 @@
             <div class="container">
                 <div class="personal-hero-content">
                     <div class="hero-text">
-                        <h1 class="personal-title">Hi, I'm Bhadraksh Bhargava</h1>
-                        <p class="personal-subtitle">Creative Full-Stack & Mobile Developer crafting delightful experiences with Flutter, React, Go microservices and agentic AI.</p>
+                        <h1 class="personal-title">Bhadraksh Bhargava<br>Full-Stack & Mobile Developer</h1>
+                        <p class="personal-subtitle">I build Flutter/React apps and Go/FastAPI backends with CI/CD and measurable performance improvements.</p>
                         
                         <div class="personal-stats">
                             <div class="stat-item">
@@ -466,7 +531,7 @@
                     </p>
                     <div class="cta-actions">
                         <a href="index.html#contact" class="btn-primary cta-btn">
-                            Start a 20‑min Call →
+                            Start a 20-min Call →
                         </a>
                         <a href="index.html#services" class="btn-secondary cta-btn-ghost">
                             View Services

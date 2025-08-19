@@ -12,25 +12,25 @@ class BusinessFocusedSite {
 
         this.solutionsMap = [
             {
-                title: "Rapid cross‑platform delivery with Flutter",
+                title: "Flutter MVP development: iOS & Android from one codebase",
                 summary: "Single codebase for iOS and Android with native performance",
-                outcome: "−40% eng hours",
-                details: "Shared business logic, platform-specific UI, hot reload development"
+                outcome: "-40% engineering hours to first release",
+                details: "Challenge: slow dual-platform delivery. Approach: shared logic, platform-specific UI, CI for both stores. Result: cut cycle time 40% with 99.9% crash-free."
             },
             {
                 title: "Go/Gin microservices on Cloud Run",
                 summary: "Event-driven architecture that scales automatically",
-                outcome: "10× traffic",
+                outcome: "10x traffic",
                 details: "RabbitMQ messaging, Docker containers, zero-downtime deployments"
             },
             {
-                title: "Sub‑200ms funnels with React + FastAPI",
+                title: "Sub-200ms funnels with React + FastAPI",
                 summary: "Lightning-fast checkouts that convert",
                 outcome: "+18% conversions",
                 details: "Optimized queries, cached responses, streamlined UX"
             },
             {
-                title: "AI‑ready graph + vector search",
+                title: "AI-ready graph + vector search",
                 summary: "Neo4j + embeddings for intelligent recommendations",
                 outcome: "New recommendations",
                 details: "Knowledge graphs, semantic search, agentic workflows"
@@ -68,6 +68,8 @@ class BusinessFocusedSite {
         // Load saved theme
         const savedTheme = localStorage.getItem('theme') || 'dark';
         this.setTheme(savedTheme);
+    // Ensure UI matches the initial theme
+    this.updateThemeUI();
         
         if (themeToggle) {
             themeToggle.addEventListener('click', () => this.toggleTheme());
@@ -88,26 +90,37 @@ class BusinessFocusedSite {
         localStorage.setItem('theme', newTheme);
 
         this.setTheme(newTheme);
-
-        // Update theme icon
-        const themeIcon = document.getElementById('theme-icon');
-        if (themeIcon) {
-            themeIcon.textContent = newTheme === 'dark' ?  '☀️' : '🌙';
-        }
-
-        const themeToggleEl = document.querySelector('.theme-toggle');
-        if (themeToggleEl) {
-            if (this.currentTheme === 'light') {
-            themeToggleEl.style.backgroundColor = 'black';
-            } else {
-            themeToggleEl.style.backgroundColor = '#404142ff'; // Tailwind's gray-200
-            }
-        }
+    // Update UI to reflect new theme
+    this.updateThemeUI();
     }
 
     setTheme(theme) {
         this.currentTheme = theme;
         document.documentElement.className = theme;
+    }
+
+    updateThemeUI() {
+        // Update theme icon
+        const themeIcon = document.getElementById('theme-icon');
+        if (themeIcon) {
+            themeIcon.textContent = this.currentTheme === 'dark' ? '☀️' : '🌙';
+        }
+
+        // Update theme-toggle background
+        const themeToggleEl = document.querySelector('.theme-toggle');
+        if (themeToggleEl) {
+            themeToggleEl.style.backgroundColor = this.currentTheme === 'light' ? 'black' : '#404142ff';
+        }
+
+        // Update command-button styles
+        const commandButtonEl = document.querySelector('.command-button');
+        if (commandButtonEl) {
+            commandButtonEl.style.backgroundColor = this.currentTheme === 'light' ? 'black' : '#404142ff';
+        }
+        const commandIcon = document.getElementById('command-icon');
+        if (commandIcon) {
+            commandIcon.style.color = 'white';
+        }
     }
 
     /**
@@ -589,6 +602,17 @@ class BusinessFocusedSite {
      * Keyboard Shortcuts
      */
     initKeyboardShortcuts() {
+        const commandIcon = document.querySelector('.command-icon');
+        if (commandIcon) {
+            commandIcon.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (this.commandPaletteOpen) {
+                this.closeCommandPalette();
+            } else {
+                this.openCommandPalette();
+            }
+            });
+        }
         document.addEventListener('keydown', (e) => {
             // Command palette toggle (Cmd+K or Ctrl+K)
             if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
