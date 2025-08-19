@@ -188,3 +188,36 @@ function setTheme(theme) {
         start();
     }
 })();
+
+// Expose a robust Resume downloader for the inline onclick in about.html
+// Tries a few common paths and downloads the first available PDF.
+window.downloadResume = function downloadResume() {
+    const candidates = [
+        "https://daloctypx7lhk4xo.public.blob.vercel-storage.com/Bhadraksh%20Bhargava.pdf"
+    ];
+
+    const tryNext = (i) => {
+        if (i >= candidates.length) {
+            alert("Resume isn't available right now. Please email bhadrakshbhargava@gmail.com and I'll send it over.");
+            return;
+        }
+        const url = candidates[i];
+        fetch(url, { method: 'HEAD' })
+            .then((res) => {
+                if (res.ok) {
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.setAttribute('download', '');
+                    a.rel = 'noopener';
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                } else {
+                    tryNext(i + 1);
+                }
+            })
+            .catch(() => tryNext(i + 1));
+    };
+
+    tryNext(0);
+};
