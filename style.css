@@ -372,7 +372,7 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 2rem 2rem;
 }
 
 .hero-content {
@@ -386,6 +386,8 @@ body {
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
+
+  text-align: center;
 }
 
 .hero-subtitle {
@@ -418,7 +420,7 @@ body {
 
 /* Problems Section */
 .problems-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
   background: var(--bg-secondary);
 }
 
@@ -534,7 +536,7 @@ body {
 
 /* Services Section */
 .services-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
 }
 
 .services-grid {
@@ -591,7 +593,7 @@ body {
 
 /* Proof Section */
 .proof-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
   background: var(--bg-secondary);
 }
 
@@ -736,7 +738,7 @@ body {
 
 /* Outcomes Section */
 .outcomes-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
 }
 
 .outcomes-grid {
@@ -776,7 +778,7 @@ body {
 
 /* Process Section */
 .process-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
   background: var(--bg-secondary);
 }
 
@@ -1180,11 +1182,11 @@ body {
 
 /* Personal Portfolio Styles */
 .about-page {
-  margin-top: 80px;
+  margin-top: 120px;
 }
 
 .personal-hero-section {
-  padding: 4rem 0;
+  padding: 4rem 2rem;
   min-height: 70vh;
   display: flex;
   align-items: center;
@@ -1197,6 +1199,7 @@ body {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
+  padding: 2rem 0rem;
 }
 
 .personal-title {
@@ -1264,7 +1267,7 @@ body {
 
 /* Education Timeline */
 .education-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
   background: var(--bg-secondary);
 }
 
@@ -1311,7 +1314,7 @@ body {
 
 /* Skills Grid */
 .skills-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
 }
 
 .skills-grid {
@@ -1372,7 +1375,7 @@ body {
 
 /* Experience Timeline */
 .experience-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
   background: var(--bg-secondary);
 }
 
@@ -1456,7 +1459,7 @@ body {
 
 /* Projects Grid */
 .projects-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
 }
 
 .projects-grid {
@@ -1534,7 +1537,7 @@ body {
 
 /* Leadership & Certifications */
 .leadership-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
   background: var(--bg-secondary);
 }
 
@@ -1585,7 +1588,7 @@ body {
 
 /* Interests */
 .interests-section {
-  padding: 6rem 0;
+  padding: 6rem 2rem;
 }
 
 .interests-grid {
