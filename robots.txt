@@ -1,2 +1,3 @@
 User-agent: *
+Allow: /sitemap.xml
 Sitemap: https://portfolio-website-kappa-smoky.vercel.app/sitemap.xml
