@@ -1,538 +1,438 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelance Software Engineer for MVPs, Microservices & AI — Flutter, React, Go, FastAPI | Bhadraksh Bhargava</title>
-    <meta name="description" content="Hire an engineer to deliver MVPs, Go/Gin microservices on Cloud Run, and AI features that move metrics. p95 <200ms APIs, 99.9% crash-free mobile with Flutter. 48-hour technical audit.">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    
-    <link rel="stylesheet" href="style.css">
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Senior Full-Stack Developer portfolio specializing in high-performance web applications, cloud architecture, and pixel-perfect user experiences." name="description"/>
+<title>DevName | Senior Full-Stack Developer &amp; Cloud Architect</title>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#36e27b",
+                        "accent": "#007aff",
+                        "background-light": "#f5f5f7",
+                        "background-dark": "#000000",
+                        "surface-dark": "#1d1d1f",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Spline Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "1rem", "lg": "1.5rem", "xl": "2rem", "2xl": "2.5rem", "3xl": "3rem", "full": "9999px" },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'scroll': 'scroll 40s linear infinite',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        scroll: {
+                            '0%': { transform: 'translateX(0)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 44px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        .glass-panel {
+            background: rgba(29, 29, 31, 0.72);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-primary {
+            background: linear-gradient(135deg, #36e27b 0%, #007aff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }html {
+            scroll-behavior: smooth;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
 </head>
-<body>
-    <!-- Overlay guide orb for scroll cue (positioned fixed, independent of content) -->
-    <div class="guide-orb" id="guideOrb" aria-hidden="true"></div>
-    <header class="header" id="header">
-    <div class="container header-content">
-      <div class="logo"><span class="logo-text">Bhadraksh Bhargava</span></div>
-
-      <nav class="header-nav">
-        <a href="about.html" class="nav-link">About Me</a>
-      </nav>
-    </div>
-  </header>
-    <!-- Theme Toggle -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="theme-icon" id="theme-icon">☀️</span>
-        <!-- <span class="moon-icon">🌙</span> -->
-    </button>
-
-    <button class="command-button" id="commandButton" aria-label="Command Button">
-        <span class="command-icon" id="command-icon">⌘K</span>
-        <!-- <span class="moon-icon">🌙</span> -->
-    </button>
-
-    <!-- Floating CTA -->
-    <div class="floating-cta" id="floatingCta">
-        <button class="floating-btn" onclick="scrollToSection('contact')">
-            📞 Book Call
-        </button>
-    </div>
-
-    <!-- Mobile Sticky CTA -->
-    <div class="mobile-sticky-cta" id="mobileStickyCta">
-        <button class="mobile-btn" onclick="scrollToSection('contact')">
-            Start My MVP Sprint →
-        </button>
-    </div>
-
-    <!-- Command Palette -->
-    <div class="command-palette hidden" id="commandPalette">
-        <div class="command-header">
-            <span class="prompt">$</span>
-            <input type="text" class="command-input" placeholder="Navigate to section..." id="commandInput">
-            <span class="hint">⌘K</span>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-gray-100 antialiased overflow-x-hidden selection:bg-primary selection:text-black">
+<header class="fixed top-0 w-full z-50 transition-all duration-300">
+<div class="glass-panel">
+<div class="max-w-[1400px] mx-auto px-6 h-14 md:h-16 flex items-center justify-between">
+<div class="flex items-center gap-2 group cursor-pointer">
+<span class="material-symbols-outlined text-white transition-transform group-hover:rotate-12">terminal</span>
+<span class="font-semibold text-lg tracking-tight text-white">DevName</span>
+</div>
+<nav class="hidden md:flex items-center gap-10">
+<a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#about">About</a>
+<a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#services">Expertise</a>
+<a class="text-sm font-medium text-gray-300 hover:text-white transition-colors" href="#work">Selected Work</a>
+</nav>
+<a class="hidden md:flex items-center justify-center h-8 px-4 bg-white text-black text-xs font-semibold rounded-full hover:bg-gray-100 transition-all transform hover:scale-105" href="#contact">
+                Contact
+            </a>
+</div>
+</div>
+</header>
+<section class="relative min-h-screen flex flex-col justify-center items-center pt-20 px-6 overflow-hidden bg-black">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(54,226,123,0.08),rgba(0,0,0,0))] pointer-events-none"></div>
+<div class="absolute top-[20%] right-[10%] w-[300px] h-[300px] bg-blue-500/10 rounded-full blur-[100px] animate-float" style="animation-delay: 1s;"></div>
+<div class="absolute bottom-[20%] left-[10%] w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px] animate-float" style="animation-delay: 0s;"></div>
+<div class="container max-w-[1100px] relative z-10 flex flex-col items-center text-center gap-8 animate-fade-in-up">
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+</span>
+<span class="text-xs font-medium text-gray-300 uppercase tracking-widest">Available for hire</span>
+</div>
+<h1 class="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tighter leading-[0.9] text-white">
+            Code as <br/>
+<span class="text-gradient">Craftsmanship.</span>
+</h1>
+<p class="text-xl md:text-2xl text-gray-400 max-w-2xl font-light leading-relaxed mt-4">
+            Forging high-performance digital architectures with precision, scalability, and an obsession for detail.
+        </p>
+<div class="flex flex-col sm:flex-row gap-5 mt-8">
+<a class="flex items-center justify-center h-14 px-10 bg-white text-black text-base font-semibold rounded-full hover:bg-gray-200 transition-all active:scale-95" href="#work">
+                View Projects
+            </a>
+<a class="flex items-center justify-center h-14 px-10 bg-[#1d1d1f] border border-white/10 text-white text-base font-semibold rounded-full hover:bg-[#2d2d2f] transition-all active:scale-95" href="#about">
+                About Me
+            </a>
+</div>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-40">
+<span class="text-[10px] uppercase tracking-[0.3em] text-white">Explore</span>
+<div class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"></div>
+</div>
+</section>
+<div class="py-10 border-y border-white/5 bg-[#050505] overflow-hidden relative z-20">
+<div class="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-10"></div>
+<div class="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-10"></div>
+<div class="flex w-max animate-scroll items-center gap-20 opacity-50 hover:opacity-100 transition-opacity duration-500">
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">code</span>React</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">data_object</span>Node.js</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">javascript</span>TypeScript</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">hub</span>GraphQL</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">database</span>PostgreSQL</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">cloud</span>AWS</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">deployed_code</span>Docker</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">style</span>Tailwind</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">code</span>React</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">data_object</span>Node.js</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">javascript</span>TypeScript</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">hub</span>GraphQL</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">database</span>PostgreSQL</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">cloud</span>AWS</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">deployed_code</span>Docker</span>
+<span class="text-xl font-bold text-gray-500 flex items-center gap-3"><span class="material-symbols-outlined">style</span>Tailwind</span>
+</div>
+</div>
+<section class="py-32 px-6 bg-surface-dark relative overflow-hidden" id="about">
+<div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative order-2 lg:order-1">
+<div class="absolute -top-10 -left-10 w-40 h-40 bg-primary/20 rounded-full blur-[60px]"></div>
+<div class="relative z-10 space-y-8">
+<h2 class="text-4xl md:text-5xl font-bold text-white tracking-tight">
+                     Engineering with <br/>
+<span class="text-gray-500">Purpose &amp; Precision.</span>
+</h2>
+<div class="space-y-6 text-lg text-gray-400 font-light leading-relaxed">
+<p>
+                         I believe that great software is the intersection of clean logic and intuitive design. With over 6 years of experience shipping production-grade applications, my approach is rooted in simplicity and performance.
+                     </p>
+<p>
+                         My philosophy is simple: write code that is readable, scalable, and solves real human problems. I don't just build features; I architect solutions that stand the test of time and scale effortlessly.
+                     </p>
+</div>
+<div class="grid grid-cols-2 gap-8 pt-8 border-t border-white/5">
+<div>
+<span class="block text-4xl font-bold text-white mb-1">6+</span>
+<span class="text-sm text-gray-500 uppercase tracking-wider">Years Experience</span>
+</div>
+<div>
+<span class="block text-4xl font-bold text-white mb-1">50+</span>
+<span class="text-sm text-gray-500 uppercase tracking-wider">Projects Delivered</span>
+</div>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 relative h-full min-h-[400px] bg-[#111] rounded-3xl overflow-hidden border border-white/5">
+<div class="absolute inset-0 flex items-center justify-center opacity-30">
+<div class="w-[1px] h-full bg-gradient-to-b from-transparent via-primary to-transparent absolute left-1/4 animate-pulse"></div>
+<div class="w-[1px] h-full bg-gradient-to-b from-transparent via-blue-500 to-transparent absolute left-2/4 animate-pulse" style="animation-delay: 0.5s"></div>
+<div class="w-[1px] h-full bg-gradient-to-b from-transparent via-purple-500 to-transparent absolute left-3/4 animate-pulse" style="animation-delay: 1s"></div>
+</div>
+<div class="absolute inset-0 bg-gradient-to-br from-surface-dark/0 via-surface-dark/50 to-surface-dark"></div>
+<div class="absolute bottom-10 left-10 right-10 p-6 glass-panel rounded-2xl border border-white/10 transform rotate-[-2deg] hover:rotate-0 transition-transform duration-500">
+<div class="flex items-center gap-3 mb-3">
+<div class="w-3 h-3 rounded-full bg-red-500"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+<div class="w-3 h-3 rounded-full bg-green-500"></div>
+</div>
+<div class="font-mono text-xs text-gray-400">
+<span class="text-purple-400">const</span> <span class="text-blue-400">innovate</span> = <span class="text-yellow-400">async</span> () =&gt; {<br/>
+                      <span class="text-purple-400">await</span> <span class="text-blue-400">buildFuture</span>();<br/>
+                      <span class="text-purple-400">return</span> <span class="text-green-400">excellence</span>;<br/>
+                    }
+                </div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-6 bg-black" id="services">
+<div class="max-w-[1400px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-2xl">
+<h2 class="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight">Capabilities</h2>
+<p class="text-xl text-gray-400 font-light">End-to-end technical solutions designed to scale.</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 grid-auto-rows-[minmax(320px,auto)]">
+<div class="md:col-span-2 rounded-3xl p-10 bg-surface-dark border border-white/10 hover:border-primary/50 transition-all duration-500 group relative overflow-hidden flex flex-col justify-between">
+<div class="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-20 transition-all duration-500 transform group-hover:scale-110">
+<span class="material-symbols-outlined text-[12rem] text-white">terminal</span>
+</div>
+<div class="relative z-10">
+<span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 mb-6 text-primary">
+<span class="material-symbols-outlined">layers</span>
+</span>
+<h3 class="text-3xl font-bold text-white mb-4">Full-Stack Development</h3>
+<p class="text-gray-400 text-lg max-w-lg leading-relaxed">
+                        I build complete web solutions. From designing complex database schemas to crafting fluid, reactive frontend interfaces. My stack is modern, type-safe, and incredibly fast.
+                    </p>
+</div>
+<div class="flex flex-wrap gap-2 mt-10 relative z-10">
+<span class="px-4 py-2 bg-[#111] rounded-full text-sm font-medium text-gray-300 border border-white/10">React ecosystem</span>
+<span class="px-4 py-2 bg-[#111] rounded-full text-sm font-medium text-gray-300 border border-white/10">Node.js</span>
+<span class="px-4 py-2 bg-[#111] rounded-full text-sm font-medium text-gray-300 border border-white/10">PostgreSQL</span>
+</div>
+</div>
+<div class="md:row-span-2 rounded-3xl p-10 bg-surface-dark border border-white/10 hover:border-primary/50 transition-all duration-500 group flex flex-col relative overflow-hidden h-full justify-between">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 opacity-60"></div>
+<div class="absolute bottom-0 left-0 w-full h-2/3 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<div class="relative z-10">
+<span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 mb-6 text-primary">
+<span class="material-symbols-outlined">cloud_circle</span>
+</span>
+<h3 class="text-3xl font-bold text-white mb-4">Cloud Architecture</h3>
+<p class="text-gray-400 text-base leading-relaxed mb-6">
+                        Designing serverless infrastructure on AWS and GCP that autoscales with your user base, ensuring zero downtime and optimized costs.
+                    </p>
+</div>
+<ul class="space-y-4 relative z-10 mt-auto pt-6 border-t border-white/5">
+<li class="flex items-center gap-3 text-sm font-medium text-gray-300">
+<span class="material-symbols-outlined text-primary text-base">check</span>
+                        Microservices
+                    </li>
+<li class="flex items-center gap-3 text-sm font-medium text-gray-300">
+<span class="material-symbols-outlined text-primary text-base">check</span>
+                        Docker &amp; Kubernetes
+                    </li>
+<li class="flex items-center gap-3 text-sm font-medium text-gray-300">
+<span class="material-symbols-outlined text-primary text-base">check</span>
+                        CI/CD Pipelines
+                    </li>
+<li class="flex items-center gap-3 text-sm font-medium text-gray-300">
+<span class="material-symbols-outlined text-primary text-base">check</span>
+                        Serverless Edge Functions
+                    </li>
+</ul>
+</div>
+<div class="rounded-3xl p-10 bg-surface-dark border border-white/10 hover:border-primary/50 transition-all duration-500 group flex flex-col justify-between">
+<div>
+<span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 mb-6 text-primary">
+<span class="material-symbols-outlined">speed</span>
+</span>
+<h3 class="text-2xl font-bold text-white mb-3">Performance First</h3>
+<p class="text-gray-400 text-sm leading-relaxed">
+                        Optimizing Critical Rendering Path, minimizing TBT, and ensuring 100/100 Lighthouse scores. Speed is a feature.
+                    </p>
+</div>
+</div>
+<div class="rounded-3xl p-10 bg-surface-dark border border-white/10 hover:border-primary/50 transition-all duration-500 group flex flex-col justify-between">
+<div>
+<span class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 border border-white/10 mb-6 text-primary">
+<span class="material-symbols-outlined">devices</span>
+</span>
+<h3 class="text-2xl font-bold text-white mb-3">Adaptive Design</h3>
+<p class="text-gray-400 text-sm leading-relaxed">
+                        Responsive implementations that feel native on every device, from 4k monitors to smartphones.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-black relative min-h-screen pt-16" id="work">
+<h2 class="text-5xl md:text-7xl font-bold text-white tracking-tight text-center mb-16 px-6 relative z-10">Selected Work</h2>
+<div class="relative w-full overflow-hidden">
+<div class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 parallax-bg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-06ilNPKtWxHPMMYkVja0bsYedHen7earOh39pMVgSAN8b-xwjGIVWG7oxcjfbk4w15V2kLy3OlFMxmg920_AC5XVmsH1e953iEz6VxsnEIAmy7xbUhYLXsjoE9VAL00HaYwwXMzIQLq2TbgvdvcHRJKyYDLZCg8gIONW6JWjpy1Bk2zB5kgaGPt8sz_X5oQgEUtI_kfc0LvmdKfyrVudZSdNIKuBHTfXDylCSAI3pGqzgmaZXF77HkciSaOp9vpPKuU5PZJ3zlph"); transform: translateZ(-1px) scale(1.1);'></div>
+<div class="absolute inset-0 bg-black/50"></div>
+<div class="relative z-10 glass-panel p-8 md:p-12 max-w-2xl mx-auto rounded-3xl text-center border border-white/10">
+<div class="flex items-center justify-center gap-3 mb-6">
+<span class="px-3 py-1 bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider rounded-full">Fintech</span>
+</div>
+<h3 class="text-4xl md:text-5xl font-bold text-white mb-6">Project Alpha</h3>
+<p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                    A real-time data visualization platform handling millions of transactions daily. Re-engineered the frontend architecture to reduce load times by 40% using incremental static regeneration.
+                </p>
+<div class="flex flex-wrap justify-center gap-3 mb-12">
+<span class="text-sm font-mono text-gray-400 px-3 py-1 bg-surface-dark/50 rounded-full">Next.js</span>
+<span class="text-sm font-mono text-gray-400 px-3 py-1 bg-surface-dark/50 rounded-full">D3.js</span>
+<span class="text-sm font-mono text-gray-400 px-3 py-1 bg-surface-dark/50 rounded-full">Socket.io</span>
+</div>
+<a class="inline-flex items-center gap-2 text-white font-bold text-lg hover:text-primary transition-colors duration-300" href="#">
+                    View Case Study
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 parallax-bg" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBQ1BFBdmGb_VH4atnF9B3e8qxATJnpUSqU7DBnBd_qDdrPBhCqx4EkjljKx4eiyA182Is5NM18qcwGZLaB2iaa0GEphNuZDv1s-K5Y_cv-VV4uuwzZQChgKJsCxr9gHIrzlAXJvRFmPbqOQDN8YcVaO91V7zRb2wmfcWDH3rskvN2lFfhD-WR0x2A7EF8wYQpmeybCKk2-rpgFcSRe8ZSMgIVswV5oIab3uticET9mG-uHWUSWWstJx1MQ9ei5W2py5cwQCYWnyLW9"); transform: translateZ(-1px) scale(1.1);'></div>
+<div class="absolute inset-0 bg-black/50"></div>
+<div class="relative z-10 glass-panel p-8 md:p-12 max-w-2xl mx-auto rounded-3xl text-center border border-white/10">
+<div class="flex items-center justify-center gap-3 mb-6">
+<span class="px-3 py-1 bg-blue-500/10 text-blue-400 text-xs font-bold uppercase tracking-wider rounded-full">HealthTech</span>
+</div>
+<h3 class="text-4xl md:text-5xl font-bold text-white mb-6">Project Beta</h3>
+<p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                    Cross-platform mobile application for patient monitoring. Integrated with IoT devices via Bluetooth Low Energy (BLE) for seamless data syncing and offline-first capabilities.
+                </p>
+<div class="flex flex-wrap justify-center gap-3 mb-12">
+<span class="text-sm font-mono text-gray-400 px-3 py-1 bg-surface-dark/50 rounded-full">React Native</span>
+<span class="text-sm font-mono text-gray-400 px-3 py-1 bg-surface-dark/50 rounded-full">Firebase</span>
+<span class="text-sm font-mono text-gray-400 px-3 py-1 bg-surface-dark/50 rounded-full">Redux Toolkit</span>
+</div>
+<a class="inline-flex items-center gap-2 text-white font-bold text-lg hover:text-primary transition-colors duration-300" href="#">
+                    View Case Study
+                    <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-6 bg-[#050505]">
+<div class="max-w-[1400px] mx-auto">
+<div class="text-center mb-20">
+<h2 class="text-3xl font-bold text-white mb-4">Client Feedback</h2>
+<p class="text-gray-500">Trusted by startups and enterprise leaders.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="p-10 rounded-3xl bg-surface-dark border border-white/5 relative hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute -top-4 -right-4">format_quote</span>
+<p class="text-gray-200 text-lg mb-8 leading-relaxed font-light">"One of the most talented developers I've worked with. The attention to detail in the UI implementation was simply outstanding."</p>
+<div class="flex items-center gap-4 mt-auto">
+<div class="w-12 h-12 rounded-full bg-gray-700 bg-cover bg-center border-2 border-surface-dark" data-alt="Portrait of Sarah Jenkins" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6jWVlVxnkIUn8gJTxLccN0bbr_sOMDuSk6KKRfqWfUf_bvERnzv0_Bcr2rMGR1iaS1nt4WTHMniXi843EsHSQtrsDrg4wivUP7cYIoNhxQETW_m73VxlEb7WtyCLNrmPZydyZxdZDSOHViwXpGVjWuZRZviE7UBrEl6RDaWaujndAB2x6u6iAoNdXWdNmdef5NCJH2jZBs3hTDYNMhkmiCxObe7zXlY-kXIgBTEwtqL0fwA4lt8XBWzEjdWlhtRViOwluiFoeqVuq");'></div>
+<div>
+<p class="text-white font-bold">Sarah Jenkins</p>
+<p class="text-gray-500 text-xs uppercase tracking-wider">CTO, TechFlow</p>
+</div>
+</div>
+</div>
+<div class="p-10 rounded-3xl bg-surface-dark border border-white/5 relative hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute -top-4 -right-4">format_quote</span>
+<p class="text-gray-200 text-lg mb-8 leading-relaxed font-light">"Delivered a complex architecture migration ahead of schedule. The code quality is impeccable and easy to maintain."</p>
+<div class="flex items-center gap-4 mt-auto">
+<div class="w-12 h-12 rounded-full bg-gray-700 bg-cover bg-center border-2 border-surface-dark" data-alt="Portrait of Michael Chen" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBpzz-b_KKmnQw1UA5P6WBA8DtWuQEwHzGqXHu3JJUN6Ipt9f8sbxhgaTGIixWMiuVGUMnS7S_HASDyY0AjOYzrAcEncPIiLeIxB7e0h60yYtVu7vEueFGiJzp58AVCmwsz8OYX3r8flL7d_i1n68_dKBSfDHUD5QSA-8PbXjjC48LXRMxt1HCsIMV6EdzI4jRJPbrYqXIHvSQowpNwDRRKnOFQvXTfdyBRqB4mR12aCfdaLK6dTsOxFuQtN0O2W4fLNJtYWqp4OXSK");'></div>
+<div>
+<p class="text-white font-bold">Michael Chen</p>
+<p class="text-gray-500 text-xs uppercase tracking-wider">Product Lead, StartUp</p>
+</div>
+</div>
+</div>
+<div class="p-10 rounded-3xl bg-surface-dark border border-white/5 relative hover:-translate-y-2 transition-transform duration-300">
+<span class="material-symbols-outlined text-primary/20 text-6xl absolute -top-4 -right-4">format_quote</span>
+<p class="text-gray-200 text-lg mb-8 leading-relaxed font-light">"Not just a coder, but a product thinker. They helped us refine our features during the development process."</p>
+<div class="flex items-center gap-4 mt-auto">
+<div class="w-12 h-12 rounded-full bg-gray-700 bg-cover bg-center border-2 border-surface-dark" data-alt="Portrait of Alex Rivera" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuADjSb0aBbEulA_It8lOQKlGzSPKh8re5_GRtWhnyBz5Har12CfnjcBZKvuuo0X60FYGOV9bvStA3jAGxPpnFAnpnhUqAVhBxTXvMb8eq8RQWm61rgOtWWv0COPBQuNN1JRX_HKYxJ-v5ITJs2Fccmit6MjH1r5xixWyOOZ6-cG10bzvKZootqOIFfiVwmJhymCBDbgmqgOSgR3snMAKIZFGijzaMcSY2m3IPv4DxsQEKiGjmg66UhtT4UWWiprSvFLu3NcL4isb7SE");'></div>
+<div>
+<p class="text-white font-bold">Alex Rivera</p>
+<p class="text-gray-500 text-xs uppercase tracking-wider">Founder, DesignCo</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-40 px-6 bg-black relative overflow-hidden flex flex-col items-center text-center" id="contact">
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80vw] h-[500px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-black to-black pointer-events-none"></div>
+<div class="relative z-10 max-w-4xl">
+<h2 class="text-6xl md:text-9xl font-bold text-white tracking-tighter mb-10">
+            Let's build <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600">the future.</span>
+</h2>
+<p class="text-xl md:text-2xl text-gray-400 mb-14 max-w-2xl mx-auto font-light">
+            I’m currently available for freelance projects and open to key full-time opportunities.
+        </p>
+<a class="inline-flex items-center justify-center h-20 px-12 bg-white text-black text-xl font-bold rounded-full hover:scale-105 transition-all shadow-[0_0_50px_rgba(255,255,255,0.2)]" href="mailto:hello@devname.com">
+            Start a Project
+        </a>
+</div>
+<div class="w-full max-w-[1400px] mt-40 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 z-10">
+<div class="mb-4 md:mb-0">
+            © 2024 DevName. Designed &amp; Built in California.
         </div>
-        <div class="command-results" id="commandResults">
-            <div class="command-item" data-target="hero">
-                <span class="icon">🏠</span>
-                <span class="name">Hero</span>
-                <span class="path">~/ship-wins</span>
-            </div>
-            <div class="command-item" data-target="problems">
-                <span class="icon">🎯</span>
-                <span class="name">Problems</span>
-                <span class="path">~/solutions</span>
-            </div>
-            <div class="command-item" data-target="services">
-                <span class="icon">📦</span>
-                <span class="name">Services</span>
-                <span class="path">~/packages</span>
-            </div>
-            <div class="command-item" data-target="proof">
-                <span class="icon">📊</span>
-                <span class="name">Proof</span>
-                <span class="path">~/results</span>
-            </div>
-            <div class="command-item" data-target="outcomes">
-                <span class="icon">🚀</span>
-                <span class="name">Outcomes</span>
-                <span class="path">~/outcomes</span>
-            </div>
-            <div class="command-item" data-target="process">
-                <span class="icon">⚙️</span>
-                <span class="name">Process</span>
-                <span class="path">~/process</span>
-            </div>
-            <div class="command-item" data-target="contact">
-                <span class="icon">📨</span>
-                <span class="name">Contact</span>
-                <span class="path">~/get-started</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <!-- Hero Section -->
-        <section id="hero" class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h1 class="hero-title">Ship measurable product wins with a software engineer</h1>
-                    <p class="hero-subtitle">Launch a testable MVP, scale APIs to sub-200ms, or add AI features that lift retention—on a predictable engineering cadence.</p>
-                    
-                    <div class="hero-ctas">
-                        <button class="btn-primary" onclick="scrollToSection('contact')">
-                            Get your 48-hour technical audit (risks, fixes, timeline) →
-                        </button>
-                        <button class="btn-secondary" onclick="scrollToSection('contact')">
-                            See if your roadmap fits a 4-week MVP sprint →
-                        </button>
-                    </div>
-
-                    <p class="cta-note">No obligation. NDA available. Limited to 2 client slots/month.</p>
-                    
-                    <div class="trust-strip">
-                        <span class="trust-item">4 production apps</span>
-                        <span class="trust-separator">·</span>
-                        <span class="trust-item">60% faster releases</span>
-                        <span class="trust-separator">·</span>
-                        <span class="trust-item">99.9% crash-free</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Problem → Solution Section -->
-        <section id="problems" class="problems-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Solve your engineering bottleneck</h2>
-                    <p>Pick a bottleneck to see the approach and the business outcome.</p>
-                </div>
-                
-                <div class="problems-grid">
-                    <div class="problems-list">
-                        <div class="problem-card active" data-solution="0">
-                            <h3>Mobile backlog is blocking revenue</h3>
-                            <p>iOS and Android teams can't keep up with feature demands</p>
-                        </div>
-                        <div class="problem-card" data-solution="1">
-                            <h3>Monolith can't scale</h3>
-                            <p>Single codebase bottlenecks deployment and performance</p>
-                        </div>
-                        <div class="problem-card" data-solution="2">
-                            <h3>Checkout churn is killing growth</h3>
-                            <p>Slow APIs and poor UX losing customers at conversion</p>
-                        </div>
-                        <div class="problem-card" data-solution="3">
-                            <h3>Data is siloed and unsearchable</h3>
-                            <p>Information trapped in separate systems</p>
-                        </div>
-                    </div>
-                    
-                    <div class="solution-panel">
-                        <div class="solution-content" data-solution="0">
-                            <h3 class="solution-title">Flutter MVP development: iOS & Android from one codebase</h3>
-                            <p class="solution-summary">Build a testable MVP fast without sacrificing native feel.</p>
-                            <div class="solution-outcome">-40% engineering hours to first release</div>
-                            <p class="solution-details">Challenge: slow dual-platform delivery.</br>Approach: shared logic, platform-specific UI, CI for both stores.</br>Result: cut cycle time 40% with 99.9% crash-free.</p>
-                        </div>
-                        <!-- <div class="solution-content" data-solution="1">
-                            <h3>Go/Gin microservices on Cloud Run</h3>
-                            <p>Event-driven architecture that scales automatically</p>
-                            <div class="outcome">10× traffic</div>
-                            <p class="details">RabbitMQ messaging, Docker containers, zero-downtime deployments</p>
-                        </div>
-                        <div class="solution-content" data-solution="2">
-                            <h3>Sub-200ms funnels with React + FastAPI</h3>
-                            <p>Lightning-fast checkouts that convert</p>
-                            <div class="outcome">+18% conversions</div>
-                            <p class="details">Optimized queries, cached responses, streamlined UX</p>
-                        </div>
-                        <div class="solution-content" data-solution="3">
-                            <h3>AI-ready graph + vector search</h3>
-                            <p>Neo4j + embeddings for intelligent recommendations</p>
-                            <div class="outcome">New recommendations</div>
-                            <p class="details">Knowledge graphs, semantic search, agentic workflows</p>
-                        </div> -->
-                    </div>
-                </div>
-                
-                <div class="section-cta">
-                    <button class="btn-primary" onclick="scrollToSection('contact')">
-                        Fix My Bottleneck →
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="services" class="services-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Productized engineering services</h2>
-                    <p>Fixed-scope, outcome-driven engagements—weekly progress tied to a clear KPI.</p>
-                </div>
-                
-                <div class="services-grid">
-                    <div class="service-card">
-                        <h3>MVP Sprint</h3>
-                        <div class="service-duration">4 weeks</div>
-                        <div class="service-deliverables">
-                            <div class="deliverable">✓ Prioritized scope and sprint plan with demo dates</div>
-                            <div class="deliverable">✓ Working MVP build and metrics plan</div>
-                            <div class="deliverable">✓ Weekly Loom updates and test builds</div>
-                            <div class="deliverable">✓ Release strategy and handover</div>
-
-                        </div>
-
-                            <div class="service-price" style="color:#6366f1">Ideal for: Pre-seed to Series A teams validating PMF</div>
-                        <div class="service-price">Fixed price after a 20-min call (typical range available on request)</div>
-                        <button class="btn-primary service-btn" onclick="scrollToSection('contact')">
-                            Get a 4-week MVP plan →
-                        </button>
-                    </div>
-                    
-                    <div class="service-card">
-                        <h3>Scale & Reliability</h3>
-                        <div class="service-duration">3-4 weeks</div>
-                        <div class="service-deliverables">
-                            <div class="deliverable">✓ Latency and bottleneck audit with index strategy</div>
-                            <div class="deliverable">✓ CI/CD pipelines with rollback playbook</div>
-                            <div class="deliverable">✓ Performance goals and tracking plan</div>
-                        </div>
-                        <div class="service-price">Audit guarantee: if we don't identify ≥20% p95 reduction opportunities, you don't pay</div>
-                        <button class="btn-primary service-btn" onclick="scrollToSection('contact')">
-                            Audit My Pipeline →
-                        </button>
-                    </div>
-                    
-                    <div class="service-card">
-                        <h3>AI Infusion</h3>
-                        <div class="service-duration">4-6 weeks</div>
-                        <div class="service-deliverables">
-                            <div class="deliverable">✓ Use-case mapping tied to retention/activation</div>
-                            <div class="deliverable">✓ Agent workflows and RAG + vector DB plan</div>
-                            <div class="deliverable">✓ Analytics hooks and success metrics</div>
-                            <div class="deliverable">✓ Security and evaluation checklist</div>
-                        </div>
-                        <div class="service-price">Intelligence upgrade</div>
-                        <button class="btn-primary service-btn" onclick="scrollToSection('contact')">
-                            Get my AI feasibility plan →
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Proof Section -->
-        <section id="proof" class="proof-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Case studies: from bottleneck to business impact</h2>
-                    <p>Challenges, approach, and measurable results.</p>
-                </div>
-                
-                <div class="proof-carousel">
-                    <div class="proof-card">
-                        <h3>Vet Clinic Platform</h3>
-                        <p>Challenge—promo traffic caused 5% error spikes. Approach—event-driven Go services on Cloud Run with RabbitMQ and canary deploys. Result—0 downtime during promos, 10x traffic handled.</p>
-                        <div class="proof-tech">Go • RabbitMQ • Cloud Run • Flutter</div>
-                        <!-- <button class="btn-secondary proof-btn">See Architecture →</button> -->
-                    </div>
-                    
-                    <div class="proof-card">
-                        <h3>Google ADK Contribution</h3>
-                        <p>Real-time agent graph viz; debugging from hours to minutes</p>
-                        <div class="proof-tech">Python • Graphviz • AI Agents</div>
-                        <!-- <button class="btn-secondary proof-btn">Watch 40-sec Demo →</button> -->
-                    </div>
-                    
-                    <div class="proof-card">
-                        <h3>E-commerce API</h3>
-                        <p>Challenge—checkout drop-offs from 600ms API calls. Approach—indexed queries, caching, async I/O in FastAPI. Result—p95 184ms, +18% checkout completion.</p>
-                        <div class="proof-tech">FastAPI • MySQL • JWT</div>
-                        <!-- <button class="btn-secondary proof-btn">Read Benchmarks →</button> -->
-                    </div>
-                </div>
-                
-                <div class="section-cta">
-                    <button class="btn-secondary" onclick="scrollToSection('contact')">
-                        Show me more wins →
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Outcomes Dashboard -->
-        <section id="outcomes" class="outcomes-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Outcomes that reduce risk and increase revenue</h2>
-                    <p>Metrics from recent projects</p>
-                </div>
-                
-                <div class="outcomes-grid">
-                    <!-- <div class="outcome-card">
-                        <div class="outcome-value">−60%</div>
-                        <div class="outcome-label">Release cycle time</div>
-                        <div class="outcome-bar">
-                            <div class="outcome-fill" style="width: 60%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="outcome-card">
-                        <div class="outcome-value">+30%</div>
-                        <div class="outcome-label">Retention uplift</div>
-                        <div class="outcome-bar">
-                            <div class="outcome-fill" style="width: 30%"></div>
-                        </div>
-                    </div> -->
-                    
-                    <div class="outcome-card">
-                        <div class="outcome-value">0</div>
-                        <div class="outcome-label">P1 incidents (18 months)</div>
-                        <div class="outcome-bar">
-                            <div class="outcome-fill" style="width: 100%"></div>
-                        </div>
-                    </div>
-                    
-                    <div class="outcome-card">
-                        <div class="outcome-value">99.9%</div>
-                        <div class="outcome-label">Crash-free sessions</div>
-                        <div class="outcome-bar">
-                            <div class="outcome-fill" style="width: 99%"></div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section-cta">
-                    <button class="btn-primary" onclick="scrollToSection('contact')">
-                        Get These Results →
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Process Section -->
-        <section id="process" class="process-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>De-risked delivery process</h2>
-                    <p>Clear milestones from discovery to launch</p>
-                </div>
-                
-                <div class="process-timeline">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h2>Discovery call</h2>
-                            <p>20 min → hypothesis & scope</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h2>Technical audit</h2>
-                            <p>48h → risk map & plan</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h2>Sprint plan</h2>
-                            <p>milestones & demo dates</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">4</div>
-                        <div class="step-content">
-                            <h2>Build with weekly demos</h2>
-                            <p>weekly Looms, test builds</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">5</div>
-                        <div class="step-content">
-                            <h2>Launch, docs, and runbooks</h2>
-                            <p>docs, runbooks</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="section-cta">
-                    <button class="btn-primary" onclick="scrollToSection('contact')">
-                        Send My Brief →
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Get a technical roadmap in 48 hours (risks, fixes, timeline)</h2>
-                    <p>Reply within 24h—often with a Loom and a roadmap.</p>
-                </div>
-                
-                <div class="contact-content">
-                    
-                    
-                    <form class="contact-form" id="contactForm" action="https://formspree.io/f/mvgqnrjg" method="POST" style="max-width: 550px; margin: 0 auto;">
-                        <div class="form-group">
-                            <label id="pain-point" class="pain-label">What's your biggest challenge?</label>
-                            <div class="pain-pills" role="group" aria-label="Pain points">
-                                <input type="radio" id="pain-speed" name="pain_point" value="speed" class="pain-input" checked style="display:none;">
-                                <label for="pain-speed" class="pain-pill">Speed up delivery</label>
-
-                                <input type="radio" id="pain-retention" name="pain_point" value="retention" class="pain-input" style="display:none;">
-                                <label for="pain-retention" class="pain-pill">Increase retention</label>
-
-                                <input type="radio" id="pain-scale" name="pain_point" value="scale" class="pain-input" style="display:none;">
-                                <label for="pain-scale" class="pain-pill">Scale reliably</label>
-
-                                <input type="radio" id="pain-mvp" name="pain_point" value="mvp" class="pain-input" style="display:none;">
-                                <label for="pain-mvp" class="pain-pill">Idea to MVP</label>
-
-                                <input type="radio" id="pain-other" name="pain_point" value="other" class="pain-input" style="display:none;">
-                                <input
-                                    type="text"
-                                    id="pain-other-text"
-                                    name="pain_other_text"
-                                    maxlength="35"
-                                    placeholder="Other…"
-                                    class="pain-pill pain-other-textfield"
-                                    autocomplete="off"
-                                    style="margin-left: 0;"
-                                    aria-label="Other pain point (describe)"
-                                />
-                                <script>
-                                document.addEventListener('DOMContentLoaded', function() {
-                                    const otherRadio = document.getElementById('pain-other');
-                                    const otherText = document.getElementById('pain-other-text');
-                                    const pills = document.querySelectorAll('.pain-input');
-                                    // When user focuses or types in the textfield, select the "other" radio
-                                    otherText.addEventListener('focus', function() {
-                                        otherRadio.checked = true;
-                                    });
-                                    otherText.addEventListener('input', function() {
-                                        otherRadio.checked = true;
-                                    });
-                                    // If another radio is selected, clear and blur the textfield
-                                    pills.forEach(function(pill) {
-                                        pill.addEventListener('change', function() {
-                                            if (!otherRadio.checked) {
-                                                otherText.value = '';
-                                                otherText.classList.remove('pain-other-focused');
-                                            }
-                                        });
-                                    });
-                                    // Add/remove focus class for styling
-                                    otherText.addEventListener('focus', function() {
-                                        otherText.classList.add('pain-other-focused');
-                                    });
-                                    otherText.addEventListener('blur', function() {
-                                        otherText.classList.remove('pain-other-focused');
-                                    });
-                                });
-                                </script>
-                                <style>
-                                .pain-other-textfield {
-                                    display: inline-block;
-                                    min-width: 140px;
-                                    padding: 0.5em 1em;
-                                    border-radius: 999px;
-                                    border: 1px solid #444;
-                                    background: var(--color-bg, #18181b);
-                                    color: var(--color-text, #fff);
-                                    font-family: inherit;
-                                    font-size: 1em;
-                                    outline: none;
-                                    transition: border 0.2s, box-shadow 0.2s;
-                                    margin-right: 6px;
-                                }
-                                /* Only highlight when focused */
-                                .pain-other-textfield.pain-other-focused {
-                                    border: 2px solid #6366f1;
-                                    box-shadow: 0 0 0 2px #6366f133;
-                                    background: var(--color-bg-focus, #232336);
-                                }
-                                </style>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Work Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="company">Company</label>
-                            <input type="text" id="company" name="company" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="project">Project Brief (2-3 lines)</label>
-                            <textarea id="project" name="project" rows="3" required></textarea>
-                            <small class="field-help">Share stack, current bottleneck, and your success metric (e.g., p95 &lt200ms, +X% conversion).</small>
-                        </div>
-                        
-                        <button type="submit" class="btn-primary form-submit">
-                            Request my 48-hour audit (no obligation) →
-                        </button>
-                        
-                        <p class="form-note">NDA available. 100% code and IP ownership remains with you.</p>
-                    </form>
-                    
-                    <div class="form-success hidden" id="formSuccess">
-                        <h3>Audit request received!</h3>
-                        <p>You'll get a technical roadmap within 48 hours, often with a Loom walkthrough.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-    </main>
-
-    <script src="app.js"></script>
-</body>
-</html>
+<div class="flex gap-8">
+<a class="hover:text-white transition-colors" href="#">Twitter</a>
+<a class="hover:text-white transition-colors" href="#">GitHub</a>
+<a class="hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="hover:text-white transition-colors" href="#">Instagram</a>
+</div>
+</div>
+</section>
+<div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 md:hidden">
+<div class="glass-panel px-6 py-4 rounded-2xl flex items-center gap-8 shadow-2xl ring-1 ring-white/10">
+<a class="text-gray-400 hover:text-white hover:scale-110 transition-all" href="#about">
+<span class="material-symbols-outlined text-2xl">person</span>
+</a>
+<a class="text-gray-400 hover:text-white hover:scale-110 transition-all" href="#work">
+<span class="material-symbols-outlined text-2xl">grid_view</span>
+</a>
+<a class="bg-white text-black rounded-full p-3 -mt-10 shadow-lg border-4 border-black hover:scale-110 transition-all" href="#contact">
+<span class="material-symbols-outlined text-2xl">add</span>
+</a>
+<a class="text-gray-400 hover:text-white hover:scale-110 transition-all" href="#services">
+<span class="material-symbols-outlined text-2xl">layers</span>
+</a>
+<a class="text-gray-400 hover:text-white hover:scale-110 transition-all" href="#">
+<span class="material-symbols-outlined text-2xl">share</span>
+</a>
+</div>
+</div>
+<script src="app.js"></script>
+</body></html>
