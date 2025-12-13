@@ -1,552 +1,394 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Full-Stack & Mobile Developer (Flutter, React, Go, FastAPI, AI) | Bhadraksh Bhargava</title>
-    <meta name="description" content="Full-Stack & Mobile developer skilled in Flutter, React, Go/Gin microservices, FastAPI, and AI/agents. Built 4 production apps, improved release speed 60%, and delivered 99.9% crash-free sessions. Based in Hyderabad • Open to remote.">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
-    
-    <link rel="stylesheet" href="style.css">
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevPortfolio - Building the Future</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="stylesheet" href="style.css">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#36e27b",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#000000",
+                        "surface-dark": "#111111",
+                        "surface-border": "#333333",
+                        "text-secondary": "#888888"
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2.5rem",
+                        "2xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
 </head>
-<body>
-    <div class="guide-orb" id="guideOrb" aria-hidden="true"></div>
-        <!-- Header Navigation -->
-        <header class="header" id="header">
-            <div class="container header-content">
-                <div class="logo"><span class="logo-text">Bhadraksh Bhargava</span></div>
-                <nav class="header-nav">
-                    <a href="index.html" class="nav-link">← To Services</a>
-                    <!-- <button id="themeToggleHeader" class="theme-toggle-header" aria-label="Toggle theme">
-                        <span class="sun-icon">☀️</span><span class="moon-icon">🌙</span>
-                    </button> -->
-                </nav>
-            </div>
-        </header>
-
-    <!-- Theme Toggle (floating, same as index) -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="theme-icon" id="theme-icon">☀️</span>
-    </button>
-
-    <!-- Command Button (floating) -->
-    <button class="command-button" id="commandButton" aria-label="Command Button">
-        <span class="command-icon" id="command-icon">⌘K</span>
-    </button>
-
-    <!-- Floating CTA (match index styles) -->
-    <div class="floating-cta" id="floatingCta">
-        <a class="floating-btn" href="index.html#contact">📞 Book Call</a>
-    </div>
-
-    <!-- Mobile Sticky CTA (match index styles) -->
-    <!-- <div class="mobile-sticky-cta" id="mobileStickyCta">
-        <a class="mobile-btn" href="index.html#contact">Start My MVP Sprint →</a>
-    </div> -->
-    <div class="mobile-sticky-cta" id="mobileStickyCta">
-        <button class="mobile-btn" onclick="location.href = 'index.html#contact'">
-            Start My MVP Sprint →
-        </button>
-    </div>
-
-    <!-- Command Palette -->
-    <div class="command-palette hidden" id="commandPalette">
-        <div class="command-header">
-            <span class="prompt">$</span>
-            <input type="text" class="command-input" placeholder="Navigate to section..." id="commandInput">
-            <span class="hint">⌘K</span>
-        </div>
-        <div class="command-results" id="commandResults">
-            <div class="command-item" data-target="personal-hero">
-                <span class="icon">👤</span>
-                <span class="name">Intro</span>
-                <span class="path">~/about/hero</span>
-            </div>
-            <div class="command-item" data-target="education">
-                <span class="icon">🎓</span>
-                <span class="name">Education</span>
-                <span class="path">~/about/education</span>
-            </div>
-            <div class="command-item" data-target="technical-skills">
-                <span class="icon">🛠️</span>
-                <span class="name">Technical Skills</span>
-                <span class="path">~/about/skills</span>
-            </div>
-            <div class="command-item" data-target="experience">
-                <span class="icon">💼</span>
-                <span class="name">Experience</span>
-                <span class="path">~/about/experience</span>
-            </div>
-            <div class="command-item" data-target="projects">
-                <span class="icon">📦</span>
-                <span class="name">Projects</span>
-                <span class="path">~/about/projects</span>
-            </div>
-            <div class="command-item" data-target="leadership">
-                <span class="icon">🏅</span>
-                <span class="name">Leadership & Certs</span>
-                <span class="path">~/about/leadership</span>
-            </div>
-            <div class="command-item" data-target="interests">
-                <span class="icon">✨</span>
-                <span class="name">Interests</span>
-                <span class="path">~/about/interests</span>
-            </div>
-            <div class="command-item" data-target="cta">
-                <span class="icon">📨</span>
-                <span class="name">Contact CTA</span>
-                <span class="path">~/about/contact</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- Theme Toggle -->
-    <!-- <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <span class="sun-icon">☀️</span>
-        <span class="moon-icon">🌙</span> 
-    </button> -->
-
-
-    <!-- Main Content -->
-    <main class="main-content about-page">
-        <!-- Personal Hero -->
-        <section id="personal-hero" class="personal-hero-section">
-            <div class="container">
-                <div class="personal-hero-content">
-                    <div class="hero-text">
-                        <h1 class="personal-title">Bhadraksh Bhargava<br>Full-Stack & Mobile Developer</h1>
-                        <p class="personal-subtitle">I build Flutter/React apps and Go/FastAPI backends with CI/CD and measurable performance improvements.</p>
-                        
-                        <div class="personal-stats">
-                            <div class="stat-item">
-                                <div class="stat-value">1+</div>
-                                <div class="stat-label">Years Experience</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">6+</div>
-                                <div class="stat-label">Projects Completed</div>
-                            </div>
-                            <div class="stat-item">
-                                <div class="stat-value">3+</div>
-                                <div class="stat-label">Happy Clients</div>
-                            </div>
-                        </div>
-                        
-                        <div class="personal-contact">
-                            <p><strong>Location:</strong> Hyderabad, India</p>
-                            <p><strong>Email:</strong> bhadrakshbhargava@gmail.com</p>
-                            <p><strong>Phone:</strong> +91-9121020670</p>
-                        </div>
-                        
-                        <div class="personal-links">
-                            <a href="https://linkedin.com/in/bhadraksh-bhargava" target="_blank" class="btn-secondary">
-                                LinkedIn →
-                            </a>
-                            <a href="https://github.com/BhadrakshB" target="_blank" class="btn-secondary">
-                                GitHub →
-                            </a>
-                            <button class="btn-primary" onclick="downloadResume()">
-                                Download Resume
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Education -->
-        <section id="education" class="education-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Education</h2>
-                    <p>Academic foundation in Electronics and Communication Engineering</p>
-                </div>
-                
-                <div class="education-timeline">
-                    <div class="education-item">
-                        <div class="education-year">2021 - 2025</div>
-                        <div class="education-content">
-                            <h3>B.Tech in Electronics and Communication Engineering</h3>
-                            <p class="education-institute">IIIT Tiruchirapalli</p>
-                            <p class="education-grade">CGPA: 7.7/10 • 8th Semester</p>
-                        </div>
-                    </div>
-                    
-                    <div class="education-item">
-                        <div class="education-year">2019 - 2021</div>
-                        <div class="education-content">
-                            <h3>12th Grade (PCM)</h3>
-                            <p class="education-institute">Sadhu Vaswani International School, Hyderabad</p>
-                            <p class="education-grade">Score: 91.4%</p>
-                        </div>
-                    </div>
-                    
-                    <div class="education-item">
-                        <div class="education-year">2006 - 2019</div>
-                        <div class="education-content">
-                            <h3>10th Grade</h3>
-                            <p class="education-institute">Sunflower School, Hyderabad</p>
-                            <p class="education-grade">Score: 88.17%</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Technical Skills -->
-        <section id="technical-skills" class="skills-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Technical Expertise</h2>
-                    <p>Technologies I use to bring ideas to life</p>
-                </div>
-                
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Mobile Development</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Flutter</span>
-                            <span class="skill-tag">React Native</span>
-                            <span class="skill-tag">GetX</span>
-                            <span class="skill-tag">Firebase</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Backend & APIs</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Go/Gin</span>
-                            <span class="skill-tag">FastAPI</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">Node.js</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Frontend</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">Next.js</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">TypeScript</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>AI & Data</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">LangChain</span>
-                            <span class="skill-tag">VectorDBs</span>
-                            <span class="skill-tag">Neo4j</span>
-                            <span class="skill-tag">Prompt Engineering</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Cloud & DevOps</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">GCP</span>
-                            <span class="skill-tag">Docker</span>
-                            <span class="skill-tag">CI/CD</span>
-                            <span class="skill-tag">GitHub Actions</span>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-category">
-                        <h3>Databases</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">NoSQL</span>
-                            <span class="skill-tag">RabbitMQ</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Professional Experience -->
-        <section id="experience" class="experience-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Professional Journey</h2>
-                    <p>Building products that make a difference</p>
-                </div>
-                
-                <div class="experience-timeline">
-                    <div class="experience-item current">
-                        <div class="experience-period">May 2024 - Present</div>
-                        <div class="experience-content">
-                            <h3>SDE-1 Mobile Apps</h3>
-                            <p class="experience-company">Asymmetri, Kerala</p>
-                            <ul class="experience-achievements">
-                                <li>Constructed and deployed four production-ready applications using Flutter and React Native with Next.js backend, reducing development time by 30%</li>
-                                <li>Established GitHub Actions CI/CD pipelines for automated software distribution and streamlined release processes</li>
-                                <li>Engineered a robust state management system, boosting app speed by 50% while improving code quality and maintainability</li>
-                                <li>Streamlined CI/CD pipelines, reducing deployment times by 60% and expediting Play Store releases</li>
-                                <li>Collaborated directly with clients to understand their requirements and take them into the scope for the release</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-period">May 2023 - Aug 2023</div>
-                        <div class="experience-content">
-                            <h3>Software Development Intern</h3>
-                            <p class="experience-company">Buildit Technologies, Noida</p>
-                            <ul class="experience-achievements">
-                                <li>Spearheaded a social-media local-first application for a client in the entrepreneurship space</li>
-                                <li>Developed and debugged a FastAPI backend service, resolving two major client issues</li>
-                                <li>Incorporated third-party APIs, increasing system API calls by 20%</li>
-                                <li>Refactored and optimized database schema, improving SQL usage and database performance</li>
-                                <li>Collaborated with designers to enhance six UI features, increasing engagement by 40%</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="experience-item">
-                        <div class="experience-period">Sept 2022 - Nov 2023</div>
-                        <div class="experience-content">
-                            <h3>Frontend Development Lead</h3>
-                            <p class="experience-company">Jhattcut, New Delhi</p>
-                            <ul class="experience-achievements">
-                                <li>Designed and augmented two high-performance apps in Flutter, leading to a 30% rise in retention</li>
-                                <li>Integrated Google Sign-In, Maps, and Firebase Messaging, enhancing UX</li>
-                                <li>Refined navigation and UI components, reducing space usage by 25%</li>
-                                <li>Implemented GitHub Actions workflows for continuous integration and deployment, automating APK generation and distribution to Google Drive for testers</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Featured Projects -->
-        <section id="projects" class="projects-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Featured Projects</h2>
-                    <p>Solutions that showcase technical excellence</p>
-                </div>
-                
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>Vet Clinic Management Software</h3>
-                            <div class="project-type">Full-Stack System</div>
-                        </div>
-                        <p class="project-description">
-                            Engineered a scalable microservices architecture for a full-stack Vet Clinic Management System. The platform utilizes Go and Gin for backend services, leveraging RabbitMQ for event-driven communication and a central API Gateway for secure, unified access.
-                        </p>
-                        <div class="project-highlights">
-                            <div class="highlight">✓ Microservices architecture with Go & Gin</div>
-                            <div class="highlight">✓ Event-driven communication with RabbitMQ</div>
-                            <div class="highlight">✓ Flutter app with GetX state management</div>
-                            <div class="highlight">✓ Docker containerization & GCP Cloud Run deployment</div>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Go</span>
-                            <span class="tech-tag">Gin</span>
-                            <span class="tech-tag">RabbitMQ</span>
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">GCP</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>Google's ADK Open Source Contribution</h3>
-                            <div class="project-type">Open Source</div>
-                        </div>
-                        <p class="project-description">
-                            Built real-time graph visualization feature for Google's Agent Development Kit, enabling developers to track and debug multi-agent AI interactions through intuitive visual flows.
-                        </p>
-                        <div class="project-highlights">
-                            <div class="highlight">✓ Real-time multi-agent visualization</div>
-                            <div class="highlight">✓ Performance optimization for complex systems</div>
-                            <div class="highlight">✓ Data structures & algorithm optimization</div>
-                            <div class="highlight">✓ Scalable visualization architecture</div>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">TypeScript</span>
-                            <span class="tech-tag">D3.js</span>
-                            <span class="tech-tag">AI Agents</span>
-                            <span class="tech-tag">Graph Theory</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>E-Commerce Backend</h3>
-                            <div class="project-type">API Development</div>
-                        </div>
-                        <p class="project-description">
-                            Designed a FastAPI e-commerce API with CRUD endpoints, JWT authentication, and a MySQL database, showcasing strong backend development and API design skills.
-                        </p>
-                        <div class="project-highlights">
-                            <div class="highlight">✓ RESTful API with FastAPI</div>
-                            <div class="highlight">✓ JWT authentication & authorization</div>
-                            <div class="highlight">✓ Optimized MySQL database design</div>
-                            <div class="highlight">✓ Performance-optimized indexes</div>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">FastAPI</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">JWT</span>
-                            <span class="tech-tag">Python</span>
-                        </div>
-                    </div>
-                    
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>Agriculture Platform Smart Contract</h3>
-                            <div class="project-type">Blockchain</div>
-                        </div>
-                        <p class="project-description">
-                            Developed a blockchain-based solution using Solidity, decreasing supply chain costs by 40% through transparent and trustless transactions.
-                        </p>
-                        <div class="project-highlights">
-                            <div class="highlight">✓ Smart contract development in Solidity</div>
-                            <div class="highlight">✓ 40% reduction in supply chain costs</div>
-                            <div class="highlight">✓ Transparent transaction system</div>
-                            <div class="highlight">✓ Trustless supply chain management</div>
-                        </div>
-                        <div class="project-tech">
-                            <span class="tech-tag">Solidity</span>
-                            <span class="tech-tag">Blockchain</span>
-                            <span class="tech-tag">Smart Contracts</span>
-                            <span class="tech-tag">Web3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Leadership & Certifications -->
-        <section id="leadership" class="leadership-section">
-            <div class="container">
-                <div class="leadership-grid">
-                    <div class="leadership-column">
-                        <div class="section-header">
-                            <h2>Leadership</h2>
-                            <p>Building communities and leading initiatives</p>
-                        </div>
-                        
-                        <div class="leadership-items">
-                            <div class="leadership-item">
-                                <h3>GDSC Lead, IIIT Tiruchirapalli</h3>
-                                <p>Pioneering GDSC Lead establishing the first-ever chapter on campus with a Tier 1 rating among all GDSCs nationwide. Orchestrated large-scale technical initiatives including International Hackathons and Google Cloud Jam.</p>
-                            </div>
-                            
-                            <div class="leadership-item">
-                                <h3>Technical Secretary</h3>
-                                <p>Organized Atrang (IIITT Technical Fest), conducting various hardware and software workshops, and founding the App Development and Blockchain Club.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="certifications-column">
-                        <div class="section-header">
-                            <h2>Certifications</h2>
-                            <p>Continuous learning in emerging technologies</p>
-                        </div>
-                        
-                        <div class="certification-items">
-                            <div class="certification-item">
-                                <h4>Introduction to Blockchain</h4>
-                                <p class="cert-provider">AWS • Feb 2023</p>
-                            </div>
-                            
-                            <div class="certification-item">
-                                <h4>Bitcoin for Everybody</h4>
-                                <p class="cert-provider">Saylor Academy • Mar 2023</p>
-                            </div>
-                            
-                            <div class="certification-item">
-                                <h4>Bitcoin for Developers I</h4>
-                                <p class="cert-provider">Saylor Academy • Mar 2023</p>
-                            </div>
-                            
-                            <div class="certification-item">
-                                <h4>Blockchain and its Applications</h4>
-                                <p class="cert-provider">NPTEL • Apr 2024</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Personal Interests -->
-        <section id="interests" class="interests-section">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Beyond Code</h2>
-                    <p>Interests that fuel creativity and growth</p>
-                </div>
-                
-                <div class="interests-grid">
-                    <div class="interest-item">
-                        <div class="interest-icon">🎵</div>
-                        <h3>Music</h3>
-                        <p>Playing musical instruments and exploring different genres for creative inspiration</p>
-                    </div>
-                    
-                    <div class="interest-item">
-                        <div class="interest-icon">📚</div>
-                        <h3>Finance Books</h3>
-                        <p>Reading finance and investment books to understand business and market dynamics</p>
-                    </div>
-                    
-                    <div class="interest-item">
-                        <div class="interest-icon">⚡</div>
-                        <h3>Emerging Tech</h3>
-                        <p>Staying current with industry developments and contributing to tech blogs</p>
-                    </div>
-                    
-                    <div class="interest-item">
-                        <div class="interest-icon">📈</div>
-                        <h3>Productivity</h3>
-                        <p>Implementing productivity systems and methodologies for continuous personal growth</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Call To Action Section -->
-        <section id="cta" class="cta-section">
-            <div class="container">
-                <div class="cta-surface"></div>
-                <div class="cta-orb cta-orb-1"></div>
-                <div class="cta-orb cta-orb-2"></div>
-                <div class="cta-content">
-                    <div class="cta-badge">Now booking 2 projects for this month</div>
-                    <h2 class="cta-title">Ready to build something measurable?</h2>
-                    <p class="cta-subtitle">
-                        Ship a scoped MVP in 4 weeks or upgrade reliability with a performance-focused sprint.
+<body class="about-page-new bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased overflow-x-hidden selection:bg-primary selection:text-black">
+<div class="relative flex min-h-screen w-full flex-col">
+<header class="fixed top-0 z-50 w-full glass-panel transition-all duration-300">
+<div class="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6 lg:px-12">
+<a class="flex items-center gap-2 text-white group" href="index.html">
+<div class="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 text-primary transition-transform group-hover:rotate-12">
+<span class="material-symbols-outlined text-[20px]">code_blocks</span>
+</div>
+<span class="text-sm font-semibold tracking-wide">DevPortfolio</span>
+</a>
+<nav class="hidden md:flex flex-1 justify-center gap-10">
+<a class="text-xs font-medium uppercase tracking-widest text-text-secondary hover:text-white transition-colors" href="#work">Work</a>
+<a class="text-xs font-medium uppercase tracking-widest text-text-secondary hover:text-white transition-colors" href="#skills">Skills</a>
+<a class="text-xs font-medium uppercase tracking-widest text-text-secondary hover:text-white transition-colors" href="#about">Story</a>
+<a class="text-xs font-medium uppercase tracking-widest text-text-secondary hover:text-white transition-colors" href="#testimonials">Reviews</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="hidden sm:flex cursor-pointer items-center justify-center rounded-full bg-white text-black hover:bg-primary hover:text-black h-8 px-6 text-xs font-bold transition-all duration-300" href="#contact">
+                        Contact
+                    </a>
+<button class="md:hidden text-white p-2" aria-label="Toggle mobile menu">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+<nav class="md:hidden absolute top-16 left-0 w-full bg-background-dark border-b border-surface-border p-6 hidden">
+<a class="block text-white text-center py-2" href="#work">Work</a>
+<a class="block text-white text-center py-2" href="#skills">Skills</a>
+<a class="block text-white text-center py-2" href="#about">Story</a>
+<a class="block text-white text-center py-2" href="#testimonials">Reviews</a>
+<a class="block text-white text-center py-2" href="#contact">Contact</a>
+</nav>
+</header>
+<main class="flex flex-col w-full pt-16">
+<section class="relative w-full px-6 py-20 lg:py-32 lg:px-12 flex flex-col items-center justify-center min-h-[85vh]">
+<div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+<div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] opacity-30 mix-blend-screen animate-pulse"></div>
+<div class="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-blue-500/10 rounded-full blur-[100px] opacity-20 mix-blend-screen"></div>
+</div>
+<div class="relative z-10 max-w-5xl text-center flex flex-col items-center">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm mb-8">
+<span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-medium tracking-wide text-white/80">Available for new projects</span>
+</div>
+<h1 class="text-5xl sm:text-7xl lg:text-8xl font-medium tracking-tight text-white mb-8 leading-[1.1]">
+                        Architecting <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/50">digital perfection.</span>
+</h1>
+<p class="text-lg sm:text-xl text-text-secondary max-w-2xl leading-relaxed mb-12 font-light">
+                        I craft high-performance software interfaces with a focus on motion, architectural elegance, and pixel-perfect design.
                     </p>
-                    <div class="cta-actions">
-                        <a href="index.html#contact" class="btn-primary cta-btn">
-                            Start a 20-min Call →
+<div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+<a class="flex h-14 items-center justify-center rounded-full bg-white px-10 text-black text-base font-semibold transition-transform hover:scale-105 active:scale-95" href="#work">
+                            View Selected Work
                         </a>
-                        <a href="index.html#services" class="btn-secondary cta-btn-ghost">
-                            View Services
+<a class="flex h-14 items-center justify-center rounded-full bg-surface-dark border border-surface-border px-10 text-white text-base font-semibold transition-all hover:bg-surface-border" href="#about">
+                            More About Me
                         </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <script src="about.js"></script>
-</body>
-</html>
+</div>
+</div>
+</section>
+<section class="w-full py-12 border-y border-white/5 bg-surface-dark/50 backdrop-blur-sm overflow-hidden" id="skills">
+<div class="mb-8 px-6 lg:px-12 text-center md:text-left">
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Proficiency</span>
+</div>
+<div class="relative flex overflow-x-hidden group">
+<div class="flex gap-4 animate-marquee whitespace-nowrap px-4 w-max overflow-x-auto no-scrollbar pb-4 md:pb-0">
+<div class="flex items-center gap-2 px-6 py-3 rounded-full bg-background-dark border border-surface-border text-white whitespace-nowrap hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">html</span>
+<span class="font-medium">HTML5 &amp; Semantic Web</span>
+</div>
+<div class="flex items-center gap-2 px-6 py-3 rounded-full bg-background-dark border border-surface-border text-white whitespace-nowrap hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">css</span>
+<span class="font-medium">Tailwind CSS</span>
+</div>
+<div class="flex items-center gap-2 px-6 py-3 rounded-full bg-background-dark border border-surface-border text-white whitespace-nowrap hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">javascript</span>
+<span class="font-medium">TypeScript &amp; ES6+</span>
+</div>
+<div class="flex items-center gap-2 px-6 py-3 rounded-full bg-background-dark border border-surface-border text-white whitespace-nowrap hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">code_blocks</span>
+<span class="font-medium">React.js &amp; Next.js</span>
+</div>
+<div class="flex items-center gap-2 px-6 py-3 rounded-full bg-background-dark border border-surface-border text-white whitespace-nowrap hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">data_object</span>
+<span class="font-medium">GraphQL</span>
+</div>
+<div class="flex items-center gap-2 px-6 py-3 rounded-full bg-background-dark border border-surface-border text-white whitespace-nowrap hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">terminal</span>
+<span class="font-medium">Node.js Environment</span>
+</div>
+<div class="flex items-center gap-2 px-6 py-3 rounded-full bg-background-dark border border-surface-border text-white whitespace-nowrap hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">database</span>
+<span class="font-medium">PostgreSQL</span>
+</div>
+<div class="flex items-center gap-2 px-6 py-3 rounded-full bg-background-dark border border-surface-border text-white whitespace-nowrap hover:border-primary/50 transition-colors">
+<span class="material-symbols-outlined text-primary text-xl">cloud</span>
+<span class="font-medium">AWS Infrastructure</span>
+</div>
+<div class="flex items-center gap-2 px-6 py-3 rounded-full bg-background-dark border border-surface-border text-white whitespace-nowrap hover:border-primary/50 transition-colors md:hidden">
+<span class="material-symbols-outlined text-primary text-xl">deployed_code</span>
+<span class="font-medium">Docker</span>
+</div>
+</div>
+</div>
+</section>
+<section class="w-full py-24 lg:py-32 overflow-hidden" id="work">
+<div class="px-6 lg:px-12 max-w-[1400px] mx-auto mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="text-4xl lg:text-6xl font-medium text-white tracking-tight mb-4">Selected Work</h2>
+<p class="text-text-secondary text-lg">A curated list of projects that challenge the status quo.</p>
+</div>
+<div class="flex gap-2">
+<button aria-label="Scroll Left" class="h-12 w-12 rounded-full border border-surface-border flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button aria-label="Scroll Right" class="h-12 w-12 rounded-full border border-surface-border flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-8 px-6 lg:px-12 pb-12 snap-x snap-mandatory no-scrollbar">
+<div class="snap-center shrink-0 w-[85vw] md:w-[600px] lg:w-[700px] group cursor-pointer">
+<div class="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 border border-surface-border bg-surface-dark">
+<div class="absolute inset-0 bg-black/20 z-10 transition-opacity duration-500 group-hover:bg-transparent"></div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBGHqCSoJhn7viWywM4mcVvbUd2SPUoAnz9i2LukFm8_gZ955a8RiHUR8sQpiiOdfLNeoWA8Y5hpjDFOUKJCSO0LULvZbm2jgK7pZNiqJkwbPc7FFKggV24SmKUgda0KGY2jpA3XyU6Vz0HmpZ_fFuUtGYt0LUfeHxs-_tJMVw-Sa8gOFipywlsphgsRYDRUQmRYINzWDhZ4hPsy86AYf2Avb3fZAGkdUALfEEkw-hOxfUD6Ve726VKFHGtgg5M26FwSRMp1_QKIxwz");'></div>
+<div class="absolute top-6 left-6 z-20">
+<span class="bg-black/50 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/10">FINTECH</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-primary transition-colors">FinanceFlow Dashboard</h3>
+<p class="text-text-secondary line-clamp-2 max-w-md">Real-time financial analytics platform powered by Python and D3.js visualization engines.</p>
+</div>
+<div class="h-12 w-12 rounded-full bg-surface-dark border border-surface-border flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-symbols-outlined -rotate-45">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="snap-center shrink-0 w-[85vw] md:w-[600px] lg:w-[700px] group cursor-pointer">
+<div class="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 border border-surface-border bg-surface-dark">
+<div class="absolute inset-0 bg-black/20 z-10 transition-opacity duration-500 group-hover:bg-transparent"></div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBC716lFXxKaOtilpFH26XBztTGeWZHmMCv_ntFLAm2Qv8mQ11gkhFHJu2966MwZ43hFf8QouJ4IGGUnTyg74gaunaaX4a__l1Jr5sLgJzqbVOgmtiq5Wiobq9gIjvdogLRK7Xiv4Qm4851tfyT_yu49e4POOYkx4MCd2fH8Lxu1FXNcgq5yKmaXKEJwCQ_52fN8dYRUFEZCgar61CDhNf86WBkTnb10AeKHf0U6-kUu-Vn5-IaoibMLUXXUGCZM5lkFBCTj8QrbefM");'></div>
+<div class="absolute top-6 left-6 z-20">
+<span class="bg-black/50 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/10">AI &amp; GENERATIVE</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Synapse Gen AI</h3>
+<p class="text-text-secondary line-clamp-2 max-w-md">An experimental interface for generative AI models allowing seamless text-to-visual creation.</p>
+</div>
+<div class="h-12 w-12 rounded-full bg-surface-dark border border-surface-border flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-symbols-outlined -rotate-45">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="snap-center shrink-0 w-[85vw] md:w-[600px] lg:w-[700px] group cursor-pointer">
+<div class="relative aspect-[4/3] rounded-2xl overflow-hidden mb-6 border border-surface-border bg-surface-dark flex items-center justify-center">
+<div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-black"></div>
+<div class="absolute inset-0 opacity-30" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAP9QsxOt7hS9flgL83zzWRHZjz-dFgzQaAtkEacOPoWcnHfoZJJUzskd2_pjOyWOz1HrXirSZtFCi-pS2uhX7TN7jozbA0M1cNGb0XcTvOABlIHMKJjt_BOB8yLwqIaXn6J5omutHeVEcejig0ExiEk7XKGa4LkCmiUwNij1MLO_DN8ryV_al1ikeRV8xkE7bN2FIy5oZqh3VzfpXTP-QWXLEq0ZKD6hVqwr3XBN8pjkMh4p44YEM8idFo2V8Ig7hHt5QL03xzJy2x"); background-size: cover;'></div>
+<div class="z-10 text-center p-8">
+<span class="material-symbols-outlined text-6xl text-white/20 mb-4">lock</span>
+<p class="text-white font-bold">Confidential Project</p>
+</div>
+<div class="absolute top-6 left-6 z-20">
+<span class="bg-black/50 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/10">ENTERPRISE</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-primary transition-colors">Enterprise Security Suite</h3>
+<p class="text-text-secondary line-clamp-2 max-w-md">Comprehensive security auditing tool for large-scale cloud infrastructures.</p>
+</div>
+<div class="h-12 w-12 rounded-full bg-surface-dark border border-surface-border flex items-center justify-center text-white group-hover:bg-primary group-hover:text-black transition-colors">
+<span class="material-symbols-outlined -rotate-45">arrow_forward</span>
+</div>
+</div>
+</div>
+<div class="snap-center shrink-0 w-6"></div>
+</div>
+</section>
+<section class="relative w-full bg-background-dark border-t border-surface-border" id="about">
+<div class="sticky top-0 z-10 h-screen flex flex-col items-center justify-center overflow-hidden bg-background-dark border-b border-surface-border/20">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(54,226,123,0.08),transparent_60%)] animate-pulse"></div>
+<div class="relative max-w-4xl px-6 text-center z-10 flex flex-col items-center">
+<div class="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-md">
+<span class="h-1.5 w-1.5 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-mono font-medium uppercase tracking-widest text-primary">Chapter 01</span>
+</div>
+<h2 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-white mb-8 leading-tight">
+                The Spark of <br/>
+<span class="bg-gradient-to-r from-white via-white/80 to-white/40 bg-clip-text text-transparent">Curiosity.</span>
+</h2>
+<p class="text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed font-light">
+                It started with a single line of code. Twelve years ago, I wrote my first "Hello World," and I haven't looked back since. What began as a curiosity evolved into a relentless pursuit of perfection.
+            </p>
+<div class="mt-16 animate-bounce">
+<span class="material-symbols-outlined text-white/20 text-4xl">keyboard_arrow_down</span>
+</div>
+</div>
+</div>
+<div class="sticky top-0 z-20 h-screen flex items-center overflow-hidden bg-[#050505] shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-white/5">
+<div class="mx-auto max-w-[1400px] w-full px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center h-full py-20">
+<div class="order-2 lg:order-1 relative h-full max-h-[600px] flex items-center justify-center w-full">
+<div class="relative w-full aspect-[4/5] lg:aspect-square rounded-2xl overflow-hidden border border-surface-border bg-surface-dark group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+<div class="h-full w-full bg-cover bg-center transition-transform duration-[2s] ease-out group-hover:scale-110" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAP9QsxOt7hS9flgL83zzWRHZjz-dFgzQaAtkEacOPoWcnHfoZJJUzskd2_pjOyWOz1HrXirSZtFCi-pS2uhX7TN7jozbA0M1cNGb0XcTvOABlIHMKJjt_BOB8yLwqIaXn6J5omutHeVEcejig0ExiEk7XKGa4LkCmiUwNij1MLO_DN8ryV_al1ikeRV8xkE7bN2FIy5oZqh3VzfpXTP-QWXLEq0ZKD6hVqwr3XBN8pjkMh4p44YEM8idFo2V8Ig7hHt5QL03xzJy2x");'></div>
+<div class="absolute bottom-8 left-8 z-20">
+<div class="flex items-center gap-3 mb-2">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span class="text-white font-mono text-sm tracking-widest">SAN FRANCISCO, CA</span>
+</div>
+<p class="text-text-secondary text-sm max-w-xs">Building digital bridges between human intent and machine execution.</p>
+</div>
+</div>
+</div>
+<div class="order-1 lg:order-2 flex flex-col justify-center">
+<div class="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-md w-fit">
+<span class="text-xs font-mono font-medium uppercase tracking-widest text-primary">Chapter 02</span>
+</div>
+<h2 class="text-4xl md:text-6xl font-bold tracking-tighter text-white mb-8 leading-[1.1]">
+                    Invisible <span class="text-gray-600">Design</span>,<br/>
+                    Visible <span class="text-gray-600">Impact</span>.
+                </h2>
+<div class="space-y-6 text-lg text-text-secondary font-light leading-relaxed">
+<p>
+                        I don't just build websites; I build digital ecosystems. My philosophy is rooted in the belief that software should be invisible—it should work so seamlessly that the user forgets they are using it.
+                    </p>
+<p>
+                        Having worked with both early-stage startups and Fortune 500 companies, I understand the delicate balance between shipping fast and building for scale.
+                    </p>
+</div>
+</div>
+</div>
+</div>
+<div class="sticky top-0 z-30 h-screen flex flex-col items-center justify-center overflow-hidden bg-surface-dark shadow-[0_-10px_40px_rgba(0,0,0,0.5)] border-t border-white/5">
+<div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(54,226,123,0.05),transparent_70%)] pointer-events-none"></div>
+<div class="relative z-10 max-w-[1200px] w-full px-6 text-center">
+<div class="mb-10 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-md">
+<span class="text-xs font-mono font-medium uppercase tracking-widest text-primary">Chapter 03</span>
+</div>
+<h2 class="text-4xl md:text-7xl font-bold tracking-tighter text-white mb-16">
+                By The Numbers.
+            </h2>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8 w-full mb-16">
+<div class="group p-8 rounded-3xl bg-background-dark border border-surface-border hover:border-primary/50 transition-all duration-500 hover:bg-white/5">
+<span class="block text-4xl md:text-6xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300 origin-center">6+</span>
+<span class="text-xs font-mono uppercase tracking-widest text-gray-500 group-hover:text-primary transition-colors">Years Exp</span>
+</div>
+<div class="group p-8 rounded-3xl bg-background-dark border border-surface-border hover:border-primary/50 transition-all duration-500 hover:bg-white/5">
+<span class="block text-4xl md:text-6xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300 origin-center">50+</span>
+<span class="text-xs font-mono uppercase tracking-widest text-gray-500 group-hover:text-primary transition-colors">Shipped</span>
+</div>
+<div class="group p-8 rounded-3xl bg-background-dark border border-surface-border hover:border-primary/50 transition-all duration-500 hover:bg-white/5">
+<span class="block text-4xl md:text-6xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300 origin-center">100%</span>
+<span class="text-xs font-mono uppercase tracking-widest text-gray-500 group-hover:text-primary transition-colors">Satisfied</span>
+</div>
+<div class="group p-8 rounded-3xl bg-background-dark border border-surface-border hover:border-primary/50 transition-all duration-500 hover:bg-white/5">
+<span class="block text-4xl md:text-6xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300 origin-center">24/7</span>
+<span class="text-xs font-mono uppercase tracking-widest text-gray-500 group-hover:text-primary transition-colors">Support</span>
+</div>
+</div>
+<a class="group relative inline-flex items-center justify-center gap-3 bg-white text-black text-lg font-bold h-16 px-10 rounded-full overflow-hidden transition-all hover:bg-primary hover:scale-105 active:scale-95" href="#contact">
+<span>Let's Write The Next Chapter</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<section class="w-full py-24 lg:py-32 px-6 lg:px-12" id="testimonials">
+<div class="mx-auto max-w-[1200px]">
+<h2 class="text-3xl md:text-4xl font-medium text-white mb-16 text-center">Words from collaborators</h2>
+<div class="grid md:grid-cols-3 gap-6">
+<div class="p-8 rounded-2xl bg-surface-dark border border-surface-border hover:border-primary/30 transition-all duration-300 flex flex-col justify-between min-h-[300px]">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6">format_quote</span>
+<p class="text-text-secondary text-lg leading-relaxed mb-6">
+                                    "The attention to detail is unmatched. Every interaction, every transition feels deliberate and polished. A true professional."
+                                </p>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white font-bold">JS</div>
+<div>
+<h4 class="text-white font-bold text-sm">James Smith</h4>
+<p class="text-xs text-gray-500">CTO, FinTech Corp</p>
+</div>
+</div>
+</div>
+<div class="p-8 rounded-2xl bg-surface-dark border border-surface-border hover:border-primary/30 transition-all duration-300 flex flex-col justify-between min-h-[300px]">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6">format_quote</span>
+<p class="text-text-secondary text-lg leading-relaxed mb-6">
+                                    "Rarely do you find a developer who understands design as well as engineering. The result was a product that exceeded our wildest expectations."
+                                </p>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white font-bold">AL</div>
+<div>
+<h4 class="text-white font-bold text-sm">Anna Lee</h4>
+<p class="text-xs text-gray-500">Product Manager, StartupInc</p>
+</div>
+</div>
+</div>
+<div class="p-8 rounded-2xl bg-surface-dark border border-surface-border hover:border-primary/30 transition-all duration-300 flex flex-col justify-between min-h-[300px]">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6">format_quote</span>
+<p class="text-text-secondary text-lg leading-relaxed mb-6">
+                                    "Delivered on time, communicated clearly, and the code quality was exceptional. Highly recommended for any complex frontend work."
+                                </p>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-10 w-10 rounded-full bg-white/10 flex items-center justify-center text-white font-bold">MR</div>
+<div>
+<h4 class="text-white font-bold text-sm">Michael Ross</h4>
+<p class="text-xs text-gray-500">Founder, DesignAgency</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="w-full bg-black border-t border-surface-border pb-12 pt-24" id="contact">
+<div class="mx-auto max-w-[1000px] px-6 text-center">
+<h2 class="text-5xl md:text-7xl font-semibold text-white tracking-tight mb-8">
+                        Ready to start?
+                    </h2>
+<p class="text-xl text-text-secondary max-w-xl mx-auto mb-12">
+                        Currently available for freelance projects and open to full-time opportunities.
+                    </p>
+<a class="group relative inline-flex items-center justify-center gap-3 bg-primary text-black text-xl font-bold h-20 px-12 rounded-full overflow-hidden transition-all hover:w-full max-w-[300px] hover:max-w-[400px]" href="mailto:hello@devportfolio.com">
+<span>Let's Talk</span>
+<span class="material-symbols-outlined transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">arrow_outward</span>
+</a>
+<div class="mt-32 flex flex-col md:flex-row justify-between items-center border-t border-white/10 pt-8 gap-6">
+<div class="flex items-center gap-2 text-white/50 text-sm">
+<span class="material-symbols-outlined text-base">copyright</span>
+<span>2023 DevPortfolio. All rights reserved.</span>
+</div>
+<div class="flex gap-8">
+<a class="text-text-secondary hover:text-white transition-colors" href="#">GitHub</a>
+<a class="text-text-secondary hover:text-white transition-colors" href="#">LinkedIn</a>
+<a class="text-text-secondary hover:text-white transition-colors" href="#">Twitter</a>
+<a class="text-text-secondary hover:text-white transition-colors" href="#">Instagram</a>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+<script src="about.js"></script>
+</body></html>
