@@ -1,0 +1,327 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "About — Bhadraksh Bhargava";
+const description = "Full-stack & mobile engineer. Flutter, React, Go, FastAPI, AI. 4 production apps, 60% faster releases, 99.9% crash-free.";
+---
+
+<BaseLayout title={title} description={description}>
+    <a slot="nav-link" href="/" class="nav-link">← SERVICES</a>
+
+    <div slot="floating-cta" class="floating-cta" id="floatingCta">
+        <a class="floating-btn" href="/#contact">BOOK_CALL</a>
+    </div>
+
+    <div slot="mobile-sticky-cta" class="mobile-sticky-cta" id="mobileStickyCta">
+        <button class="mobile-btn" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'})">
+            START_SPRINT →
+        </button>
+    </div>
+
+    <Fragment slot="command-items">
+        <div class="command-item" data-target="personal-hero"><span class="name">Intro</span><span class="path">~/about/intro</span></div>
+        <div class="command-item" data-target="experience"><span class="name">Experience</span><span class="path">~/about/experience</span></div>
+        <div class="command-item" data-target="projects"><span class="name">Projects</span><span class="path">~/about/projects</span></div>
+        <div class="command-item" data-target="technical-skills"><span class="name">Skills</span><span class="path">~/about/skills</span></div>
+        <div class="command-item" data-target="leadership"><span class="name">Leadership</span><span class="path">~/about/leadership</span></div>
+        <div class="command-item" data-target="cta"><span class="name">Contact</span><span class="path">~/about/contact</span></div>
+    </Fragment>
+
+    <!-- ===== ABOUT HERO SCENE ===== -->
+    <section id="personal-hero" class="scene about-hero-scene" data-scene="about-hero">
+        <div class="scene-stage">
+            <span class="section-label scene-layer" data-layer="label">// PROFILE</span>
+            <h1 class="personal-title scene-layer" data-layer="title">Bhadraksh Bhargava</h1>
+            <p class="personal-subtitle scene-layer" data-layer="subtitle">
+                Full-stack & mobile engineer. Co-founder at <a href="https://sol4you.in" target="_blank" class="inline-link">Sol4you</a>. I ship production systems that survive real traffic, real users, and real deadlines.
+            </p>
+
+            <div class="personal-stats scene-layer" data-layer="stats">
+                <div class="stat-item"><div class="stat-value">1+</div><div class="stat-label">Years</div></div>
+                <div class="stat-item"><div class="stat-value">6+</div><div class="stat-label">Projects</div></div>
+                <div class="stat-item"><div class="stat-value">4</div><div class="stat-label">Production Apps</div></div>
+            </div>
+
+            <div class="personal-contact scene-layer" data-layer="contact">
+                <p>Hyderabad, India</p>
+                <p>bhadrakshbhargava@gmail.com</p>
+                <p>+91-9121020670</p>
+            </div>
+
+            <div class="personal-links scene-layer" data-layer="links">
+                <a href="https://linkedin.com/in/bhadraksh-bhargava" target="_blank" class="btn-secondary">LINKEDIN →</a>
+                <a href="https://github.com/BhadrakshB" target="_blank" class="btn-secondary">GITHUB →</a>
+                <a href="https://sol4you.in" target="_blank" class="btn-secondary">SOL4YOU →</a>
+                <button class="btn-primary" onclick="downloadResume()">RESUME ↓</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EXPERIENCE SCENE ===== -->
+    <section id="experience" class="scene experience-scene" data-scene="experience">
+        <div class="scene-stage">
+            <div class="section-header scene-layer" data-layer="header">
+                <span class="section-label">// EXPERIENCE</span>
+                <h2>Where I've shipped</h2>
+            </div>
+
+            <div class="experience-timeline scene-layer" data-layer="content">
+                <div class="experience-item current" data-item="0">
+                    <div class="experience-period">MAY 2024 — NOW</div>
+                    <div class="experience-content">
+                        <h3>SDE-1 Mobile Apps</h3>
+                        <p class="experience-company">Asymmetri, Kerala</p>
+                        <ul class="experience-achievements">
+                            <li>Built and deployed 4 production apps (Flutter + React Native) with Next.js backends</li>
+                            <li>Cut release cycle time 60% with GitHub Actions CI/CD pipelines</li>
+                            <li>Rebuilt state management layer → 50% faster app startup, cleaner codebase</li>
+                            <li>Owned client comms directly. Scoped features, set deadlines, shipped.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item" data-item="1">
+                    <div class="experience-period">MAY 2023 — AUG 2023</div>
+                    <div class="experience-content">
+                        <h3>Software Engineering Intern</h3>
+                        <p class="experience-company">Buildit Technologies, Noida</p>
+                        <ul class="experience-achievements">
+                            <li>Led dev on a local-first social media app for an entrepreneurship client</li>
+                            <li>Debugged and hardened FastAPI backend → resolved 2 critical client blockers</li>
+                            <li>Integrated 3rd-party APIs, increasing system coverage 20%</li>
+                            <li>Refactored DB schema → better query performance, cleaner SQL</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="experience-item" data-item="2">
+                    <div class="experience-period">SEPT 2022 — NOV 2023</div>
+                    <div class="experience-content">
+                        <h3>Frontend Development Lead</h3>
+                        <p class="experience-company">Jhattcut, New Delhi</p>
+                        <ul class="experience-achievements">
+                            <li>Shipped 2 high-performance Flutter apps → 30% retention uplift</li>
+                            <li>Integrated Google Sign-In, Maps, Firebase Messaging</li>
+                            <li>Optimized nav & UI components → 25% smaller bundle, faster rendering</li>
+                            <li>Automated CI/CD with GitHub Actions → APKs straight to testers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PROJECTS SCENE ===== -->
+    <section id="projects" class="scene projects-scene" data-scene="projects">
+        <div class="scene-stage">
+            <div class="section-header scene-layer" data-layer="header">
+                <span class="section-label">// PROJECTS</span>
+                <h2>Systems I've architected</h2>
+            </div>
+
+            <div class="projects-grid scene-layer" data-layer="content">
+                <div class="project-card" data-card="0">
+                    <div class="project-header">
+                        <h3>Vet Clinic Management</h3>
+                        <span class="project-type">Full-Stack</span>
+                    </div>
+                    <p class="project-description">
+                        Microservices architecture for a vet clinic platform. Go/Gin backends, RabbitMQ event bus, API gateway, Flutter mobile app with GetX state management. Dockerized, deployed on GCP Cloud Run.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="highlight">Handled 10x traffic spikes with zero downtime</div>
+                        <div class="highlight">Event-driven comms via RabbitMQ</div>
+                        <div class="highlight">Single Flutter codebase for iOS + Android</div>
+                    </div>
+                    <div class="proof-tech">
+                        <span class="tech-tag">Go</span>
+                        <span class="tech-tag">Gin</span>
+                        <span class="tech-tag">RabbitMQ</span>
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">GCP</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-card="1">
+                    <div class="project-header">
+                        <h3>Google ADK — Open Source</h3>
+                        <span class="project-type">OSS</span>
+                    </div>
+                    <p class="project-description">
+                        Real-time graph visualization for Google's Agent Development Kit. Lets developers watch multi-agent AI interactions unfold visually instead of drowning in logs.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="highlight">Debug time: hours → minutes</div>
+                        <div class="highlight">Scalable viz architecture for complex graphs</div>
+                        <div class="highlight">Merged into Google's official ADK</div>
+                    </div>
+                    <div class="proof-tech">
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">AI Agents</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-card="2">
+                    <div class="project-header">
+                        <h3>E-Commerce Backend</h3>
+                        <span class="project-type">API</span>
+                    </div>
+                    <p class="project-description">
+                        FastAPI e-commerce API with JWT auth, MySQL, and optimized indexes. Built to handle real checkout load without the bloat of off-the-shelf platforms.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="highlight">p95 response time: 184ms</div>
+                        <div class="highlight">+18% checkout completion rate</div>
+                        <div class="highlight">Clean REST design, documented, tested</div>
+                    </div>
+                    <div class="proof-tech">
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JWT</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-card="3">
+                    <div class="project-header">
+                        <h3>Agriculture Smart Contract</h3>
+                        <span class="project-type">Blockchain</span>
+                    </div>
+                    <p class="project-description">
+                        Solidity-based supply chain solution for agricultural transactions. Transparent, trustless, and cut supply chain overhead by 40%.
+                    </p>
+                    <div class="project-highlights">
+                        <div class="highlight">40% reduction in supply chain costs</div>
+                        <div class="highlight">Transparent transaction ledger</div>
+                        <div class="highlight">Trustless intermediary removal</div>
+                    </div>
+                    <div class="proof-tech">
+                        <span class="tech-tag">Solidity</span>
+                        <span class="tech-tag">Ethereum</span>
+                        <span class="tech-tag">Web3</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SKILLS SCENE ===== -->
+    <section id="technical-skills" class="scene skills-scene" data-scene="skills">
+        <div class="scene-stage">
+            <div class="section-header scene-layer" data-layer="header">
+                <span class="section-label">// STACK</span>
+                <h2>Tools I use to ship</h2>
+            </div>
+
+            <div class="skills-grid scene-layer" data-layer="content">
+                <div class="skill-category"><h3>Mobile</h3><div class="skill-tags"><span class="skill-tag">Flutter</span><span class="skill-tag">React Native</span><span class="skill-tag">GetX</span><span class="skill-tag">Firebase</span></div></div>
+                <div class="skill-category"><h3>Backend</h3><div class="skill-tags"><span class="skill-tag">Go / Gin</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Python</span><span class="skill-tag">Node.js</span></div></div>
+                <div class="skill-category"><h3>Frontend</h3><div class="skill-tags"><span class="skill-tag">React</span><span class="skill-tag">Next.js</span><span class="skill-tag">TypeScript</span><span class="skill-tag">JavaScript</span></div></div>
+                <div class="skill-category"><h3>AI / Data</h3><div class="skill-tags"><span class="skill-tag">LangChain</span><span class="skill-tag">Vector DBs</span><span class="skill-tag">Neo4j</span><span class="skill-tag">Prompt Eng</span></div></div>
+                <div class="skill-category"><h3>Cloud / DevOps</h3><div class="skill-tags"><span class="skill-tag">GCP</span><span class="skill-tag">Docker</span><span class="skill-tag">CI/CD</span><span class="skill-tag">GitHub Actions</span></div></div>
+                <div class="skill-category"><h3>Databases</h3><div class="skill-tags"><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MySQL</span><span class="skill-tag">NoSQL</span><span class="skill-tag">RabbitMQ</span></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EDUCATION SCENE ===== -->
+    <section id="education" class="scene education-scene" data-scene="education">
+        <div class="scene-stage">
+            <div class="section-header scene-layer" data-layer="header">
+                <span class="section-label">// EDUCATION</span>
+                <h2>Formal training</h2>
+            </div>
+
+            <div class="education-timeline scene-layer" data-layer="content">
+                <div class="education-item" data-item="0">
+                    <div class="education-year">2021 — 2025</div>
+                    <div class="education-content">
+                        <h3>B.Tech Electronics & Communication</h3>
+                        <p class="education-institute">IIIT Tiruchirapalli</p>
+                        <p class="education-grade">CGPA: 7.7/10</p>
+                    </div>
+                </div>
+                <div class="education-item" data-item="1">
+                    <div class="education-year">2019 — 2021</div>
+                    <div class="education-content">
+                        <h3>12th Grade (PCM)</h3>
+                        <p class="education-institute">Sadhu Vaswani International School, Hyderabad</p>
+                        <p class="education-grade">91.4%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== LEADERSHIP SCENE ===== -->
+    <section id="leadership" class="scene leadership-scene" data-scene="leadership">
+        <div class="scene-stage">
+            <div class="leadership-grid scene-layer" data-layer="content">
+                <div class="leadership-column">
+                    <div class="section-header">
+                        <span class="section-label">// LEADERSHIP</span>
+                        <h2>Building communities</h2>
+                    </div>
+                    <div class="leadership-items">
+                        <div class="leadership-item" data-item="0">
+                            <h3>GDSC Lead — IIIT Tiruchirapalli</h3>
+                            <p>Founded the first GDSC chapter on campus. Tier 1 rating nationwide. Ran international hackathons, Google Cloud Jams, and mentored 50+ students.</p>
+                        </div>
+                        <div class="leadership-item" data-item="1">
+                            <h3>Technical Secretary</h3>
+                            <p>Organized Atrang (tech fest), hardware & software workshops, and founded the App Development and Blockchain Club.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certifications-column">
+                    <div class="section-header">
+                        <span class="section-label">// CERTS</span>
+                        <h2>Continuous learning</h2>
+                    </div>
+                    <div class="certification-items">
+                        <div class="certification-item" data-item="0"><h4>Introduction to Blockchain</h4><p class="cert-provider">AWS — Feb 2023</p></div>
+                        <div class="certification-item" data-item="1"><h4>Bitcoin for Everybody</h4><p class="cert-provider">Saylor Academy — Mar 2023</p></div>
+                        <div class="certification-item" data-item="2"><h4>Bitcoin for Developers I</h4><p class="cert-provider">Saylor Academy — Mar 2023</p></div>
+                        <div class="certification-item" data-item="3"><h4>Blockchain and its Applications</h4><p class="cert-provider">NPTEL — Apr 2024</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INTERESTS SCENE ===== -->
+    <section id="interests" class="scene interests-scene" data-scene="interests">
+        <div class="scene-stage">
+            <div class="section-header scene-layer" data-layer="header">
+                <span class="section-label">// OFF_DUTY</span>
+                <h2>Beyond the terminal</h2>
+            </div>
+            <div class="interests-grid scene-layer" data-layer="content">
+                <div class="interest-item" data-item="0"><div class="interest-icon">🎵</div><h3>Music</h3><p>Playing instruments, exploring genres. Creative fuel.</p></div>
+                <div class="interest-item" data-item="1"><div class="interest-icon">📚</div><h3>Finance</h3><p>Reading markets, understanding systems, spotting patterns.</p></div>
+                <div class="interest-item" data-item="2"><div class="interest-icon">⚡</div><h3>Emerging Tech</h3><p>AI agents, decentralization, new protocols. Always learning.</p></div>
+                <div class="interest-item" data-item="3"><div class="interest-icon">📈</div><h3>Productivity</h3><p>Systems over goals. Optimize the machine that does the work.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CTA SCENE ===== -->
+    <section id="cta" class="scene cta-scene" data-scene="cta">
+        <div class="scene-stage">
+            <div class="cta-content scene-layer" data-layer="content">
+                <div class="cta-badge">NOW BOOKING 2 PROJECTS</div>
+                <h2 class="cta-title">Ready to ship?</h2>
+                <p class="cta-subtitle">Scoped MVP in 4 weeks. Or a performance audit that finds real wins.</p>
+                <div class="cta-actions">
+                    <a href="/#contact" class="btn-primary cta-btn">START_A_SPRINT →</a>
+                    <a href="/" class="btn-ghost cta-btn-ghost">VIEW_SERVICES</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script slot="page-scripts" src="/about.js"></script>
+</BaseLayout>

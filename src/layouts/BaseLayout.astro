@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description}>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- GSAP -->
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <!-- SplitType -->
+    <script is:inline src="https://unpkg.com/split-type@0.3.4/umd/index.min.js"></script>
+    <!-- Lenis smooth scroll -->
+    <script is:inline src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</head>
+<body>
+    <!-- Cinematic overlays -->
+    <div class="vignette" aria-hidden="true"></div>
+    <div class="film-grain" aria-hidden="true"></div>
+    <div class="scanlines" aria-hidden="true"></div>
+
+    <!-- Progress bar -->
+    <div class="scroll-progress"><div class="scroll-progress-fill"></div></div>
+
+    <header class="header" id="header">
+        <div class="header-content">
+            <a href="/" class="logo-text">BHADRAKSH.B</a>
+            <nav class="header-nav">
+                <slot name="nav-link">
+                    <a href="/about/" class="nav-link">ABOUT_ME</a>
+                </slot>
+            </nav>
+        </div>
+    </header>
+
+    <button class="command-button" id="commandButton" aria-label="Command Palette">⌘K</button>
+
+    <slot name="floating-cta" />
+    <slot name="mobile-sticky-cta" />
+
+    <!-- Command Palette -->
+    <div class="command-palette hidden" id="commandPalette">
+        <div class="command-header">
+            <span class="prompt">$</span>
+            <input type="text" class="command-input" placeholder="navigate..." id="commandInput">
+            <span class="hint">ESC</span>
+        </div>
+        <div class="command-results" id="commandResults">
+            <slot name="command-items" />
+        </div>
+    </div>
+
+    <main class="main-content cinematic-root">
+        <slot />
+    </main>
+
+    <div class="ascii-rule">==============================================================</div>
+
+    <footer class="site-footer">
+        <p>Co-founder at <a href="https://sol4you.in" target="_blank">Sol4you</a> — Product Engineering Studio</p>
+    </footer>
+
+    <slot name="page-scripts" />
+    <script is:inline src="/app.js"></script>
+</body>
+</html>
